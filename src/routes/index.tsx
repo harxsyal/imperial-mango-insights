@@ -139,13 +139,10 @@ function Home() {
               { icon: Hand, title: "Hand-picked", copy: "Every mango is selected with care from our family orchard." },
               { icon: ShieldCheck, title: "Carbide free", copy: "100% natural ripening — no chemicals, no shortcuts." },
               { icon: HeartPulse, title: "Health benefits", copy: "Packed with vitamins, minerals and antioxidants." },
-            ].map(({ icon: Icon, title, copy }, i) => (
+            ].map(({ icon: Icon, title, copy }) => (
               <div
                 key={title}
-                className={`bg-cream-2 p-5 md:p-6 border border-ink/5 text-center hover:border-orange/40 hover:-translate-y-1 transition-all duration-300 ${
-                  storyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-                style={{ transitionDelay: `${200 + i * 120}ms` }}
+                className="bg-cream-2 p-5 md:p-6 border border-ink/5 text-center hover:border-orange/40 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
               >
                 <div className="w-12 h-12 mx-auto rounded-full bg-orange/10 flex items-center justify-center">
                   <Icon size={22} className="text-orange" strokeWidth={1.75} />
