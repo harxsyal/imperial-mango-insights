@@ -1,14 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Hand, ShieldCheck, HeartPulse, ArrowDown } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ProductCard } from "@/components/product-card";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { ContactForm } from "@/components/contact-form";
+import { useInView } from "@/hooks/use-in-view";
 import { products, WHATSAPP_NUMBER } from "@/lib/products";
 import welcomeCover from "@/assets/welcome-cover.jpg.asset.json";
 import varietiesMix from "@/assets/varieties-mix.png.asset.json";
 import mangoCrate from "@/assets/mango-crate.jpg.asset.json";
+import aboutSection from "@/assets/about-section.jpg.asset.json";
+import aboutTree from "@/assets/about-tree.jpg.asset.json";
+import mangoHanging from "@/assets/mango-hanging.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Home,
