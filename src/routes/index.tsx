@@ -6,6 +6,7 @@ import anwar from "@/assets/mango-anwar.jpg";
 import langra from "@/assets/mango-langra.jpg";
 import leaves from "@/assets/leaves-ornament.png";
 import { Search, ShoppingBag } from "lucide-react";
+import { useState } from "react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -16,12 +17,89 @@ const ACCENT = "#F5A623";
 const PINK = "#E5325B";
 const INK = "#2B2B2B";
 
-const products = [
-  { name: "Sindhri", img: sindhri, price: 45, old: 55, tag: "-18%", desc: "Golden, honey-sweet — the queen of Pakistani mangoes." },
-  { name: "Chaunsa", img: chaunsa, price: 55, old: null, tag: null, desc: "Aromatic, fiberless flesh with legendary flavor." },
-  { name: "Anwar Ratol", img: anwar, price: 60, old: null, tag: "New", desc: "Small, intensely sweet — an heirloom favorite." },
-  { name: "Langra", img: langra, price: 40, old: 50, tag: "-20%", desc: "Firm, tangy-sweet with a distinctive green skin." },
+// WhatsApp business number for Imperial Mangoes (international format, digits only)
+const WHATSAPP_NUMBER = "923000000000";
+
+type Size = { label: string; kg: number; price: number };
+
+const products: {
+  name: string;
+  img: string;
+  tag: string | null;
+  desc: string;
+  sizes: Size[];
+}[] = [
+  {
+    name: "Sindhri",
+    img: sindhri,
+    tag: "-18%",
+    desc: "Golden, honey-sweet — the queen of Pakistani mangoes.",
+    sizes: [
+      { label: "5 kg", kg: 5, price: 45 },
+      { label: "10 kg", kg: 10, price: 85 },
+      { label: "20 kg", kg: 20, price: 160 },
+    ],
+  },
+  {
+    name: "Chaunsa",
+    img: chaunsa,
+    tag: null,
+    desc: "Aromatic, fiberless flesh with legendary flavor.",
+    sizes: [
+      { label: "5 kg", kg: 5, price: 55 },
+      { label: "10 kg", kg: 10, price: 100 },
+      { label: "20 kg", kg: 20, price: 190 },
+    ],
+  },
+  {
+    name: "Anwar Ratol",
+    img: anwar,
+    tag: "New",
+    desc: "Small, intensely sweet — an heirloom favorite.",
+    sizes: [
+      { label: "5 kg", kg: 5, price: 60 },
+      { label: "10 kg", kg: 10, price: 110 },
+    ],
+  },
+  {
+    name: "Langra",
+    img: langra,
+    tag: "-20%",
+    desc: "Firm, tangy-sweet with a distinctive green skin.",
+    sizes: [
+      { label: "5 kg", kg: 5, price: 40 },
+      { label: "10 kg", kg: 10, price: 75 },
+      { label: "20 kg", kg: 20, price: 140 },
+    ],
+  },
 ];
+
+function whatsappUrl(opts: {
+  product?: string;
+  size?: string;
+  price?: number;
+  quantity?: number;
+}) {
+  const lines = [
+    "Assalamu Alaikum — I'd like to place an order with Imperial Mangoes.",
+    "",
+  ];
+  if (opts.product) {
+    lines.push(`• Variety: ${opts.product}`);
+    if (opts.size) lines.push(`• Box size: ${opts.size}`);
+    if (opts.quantity) lines.push(`• Quantity: ${opts.quantity} box(es)`);
+    if (opts.price) lines.push(`• Price: $${opts.price} per box`);
+    lines.push("");
+  }
+  lines.push("Delivery details:");
+  lines.push("• Full name: ");
+  lines.push("• Delivery address: ");
+  lines.push("• City / Postal code: ");
+  lines.push("• Preferred delivery date: ");
+  lines.push("");
+  lines.push("Thank you!");
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+}
 
 const trustBadges = [
   { title: "100% Natural", copy: "Ripened on the tree, never in a chamber." },
@@ -31,6 +109,13 @@ const trustBadges = [
 ];
 
 function Index() {
+  const [selected, setSelected] = useState<Record<string, number>>(() =>
+    Object.fromEntries(products.map((p) => [p.name, 0])),
+  );
+  const [qty, setQty] = useState<Record<string, number>>(() =>
+    Object.fromEntries(products.map((p) => [p.name, 1])),
+  );
+
   return (
     <div
       style={{ backgroundColor: CREAM, color: INK, fontFamily: "'Jost', system-ui, sans-serif", fontWeight: 300 }}
@@ -81,8 +166,13 @@ function Index() {
             style={{ backgroundColor: ACCENT }}>
             Shop the Harvest
           </a>
-          <a href="#contact" className="px-10 py-4 text-xs tracking-[0.25em] uppercase transition hover:bg-black hover:text-white"
-            style={{ border: `1px solid ${INK}` }}>
+          <a
+            href={whatsappUrl({})}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-10 py-4 text-xs tracking-[0.25em] uppercase transition hover:bg-black hover:text-white"
+            style={{ border: `1px solid ${INK}` }}
+          >
             Order on WhatsApp
           </a>
         </div>
@@ -120,41 +210,85 @@ function Index() {
         </h4>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-16 px-4">
-          {products.map((p) => (
-            <div key={p.name} className="group text-left">
-              <div className="relative overflow-hidden aspect-square" style={{ backgroundColor: "#F3EBDA" }}>
-                {p.tag && (
-                  <span
-                    className="absolute top-4 left-4 z-10 text-[10px] tracking-[0.2em] px-3 py-1 text-white uppercase"
-                    style={{ backgroundColor: p.tag === "New" ? ACCENT : PINK }}
-                  >
-                    {p.tag}
-                  </span>
-                )}
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  loading="lazy"
-                  width={800}
-                  height={800}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+          {products.map((p) => {
+            const sizeIdx = selected[p.name] ?? 0;
+            const size = p.sizes[sizeIdx];
+            const q = qty[p.name] ?? 1;
+            return (
+              <div key={p.name} className="group text-left">
+                <div className="relative overflow-hidden aspect-square" style={{ backgroundColor: "#F3EBDA" }}>
+                  {p.tag && (
+                    <span
+                      className="absolute top-4 left-4 z-10 text-[10px] tracking-[0.2em] px-3 py-1 text-white uppercase"
+                      style={{ backgroundColor: p.tag === "New" ? ACCENT : PINK }}
+                    >
+                      {p.tag}
+                    </span>
+                  )}
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    loading="lazy"
+                    width={800}
+                    height={800}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <h3 className="mt-6 text-lg font-normal">{p.name}</h3>
+                <p className="text-sm opacity-60 mt-1 leading-relaxed">{p.desc}</p>
+
+                {/* Size selector */}
+                <div className="mt-4 flex gap-2">
+                  {p.sizes.map((s, i) => (
+                    <button
+                      key={s.label}
+                      onClick={() => setSelected((prev) => ({ ...prev, [p.name]: i }))}
+                      className="text-[11px] tracking-[0.15em] px-3 py-1.5 uppercase transition"
+                      style={
+                        i === sizeIdx
+                          ? { backgroundColor: INK, color: "white", border: `1px solid ${INK}` }
+                          : { border: `1px solid rgba(0,0,0,0.15)`, color: INK }
+                      }
+                      aria-pressed={i === sizeIdx}
+                    >
+                      {s.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Price + qty */}
+                <div className="mt-4 flex items-center justify-between">
+                  <div className="flex items-baseline gap-1 text-sm">
+                    <span style={{ color: PINK }} className="font-medium text-base">${size.price}</span>
+                    <span className="opacity-50">/ {size.label}</span>
+                  </div>
+                  <div className="flex items-center border" style={{ borderColor: "rgba(0,0,0,0.15)" }}>
+                    <button
+                      onClick={() => setQty((prev) => ({ ...prev, [p.name]: Math.max(1, (prev[p.name] ?? 1) - 1) }))}
+                      className="px-2 py-1 hover:opacity-60"
+                      aria-label="Decrease quantity"
+                    >−</button>
+                    <span className="px-3 text-sm min-w-6 text-center">{q}</span>
+                    <button
+                      onClick={() => setQty((prev) => ({ ...prev, [p.name]: (prev[p.name] ?? 1) + 1 }))}
+                      className="px-2 py-1 hover:opacity-60"
+                      aria-label="Increase quantity"
+                    >+</button>
+                  </div>
+                </div>
+
+                <a
+                  href={whatsappUrl({ product: p.name, size: size.label, price: size.price, quantity: q })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center justify-center w-full py-3 text-[11px] tracking-[0.25em] uppercase text-white transition hover:brightness-110"
+                  style={{ backgroundColor: "#25D366" }}
+                >
+                  Order on WhatsApp
+                </a>
               </div>
-              <h3 className="mt-6 text-lg font-normal">{p.name}</h3>
-              <p className="text-sm opacity-60 mt-1 leading-relaxed">{p.desc}</p>
-              <div className="mt-3 flex items-baseline gap-2 text-sm">
-                {p.old && <span className="line-through opacity-40">${p.old}</span>}
-                <span style={{ color: PINK }} className="font-medium">${p.price}</span>
-                <span className="opacity-50">/ box</span>
-              </div>
-              <button
-                className="mt-4 text-[11px] tracking-[0.25em] uppercase pb-1 hover:opacity-70 transition"
-                style={{ borderBottom: `1px solid ${INK}` }}
-              >
-                Add to Cart
-              </button>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
