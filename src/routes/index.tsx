@@ -254,7 +254,7 @@ function Home() {
       </section>
 
       {/* CONTACT / CTA */}
-      <section id="contact" className="relative py-16 px-6 overflow-hidden">
+      <section id="contact" className="relative py-12 md:py-16 px-5 md:px-6 overflow-hidden">
         <img
           src={mangoCrate.url}
           alt=""
@@ -267,9 +267,9 @@ function Home() {
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative max-w-2xl mx-auto text-center text-white">
-          <div className="script text-3xl text-orange">Order Fresh</div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-1">Shipping All Over Pakistan</h2>
-          <p className="mt-3 text-white font-medium leading-relaxed">
+          <div className="script text-2xl md:text-3xl text-orange">Order Fresh</div>
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mt-1">Shipping All Over Pakistan</h2>
+          <p className="mt-3 text-white leading-relaxed text-sm md:text-base">
             Fill in your details and we'll deliver straight to your door — same-day pick, pack and ship.
           </p>
           <ContactForm />
