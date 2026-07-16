@@ -157,6 +157,52 @@ function Home() {
         </div>
       </section>
 
+      {/* Nutrition Facts */}
+      <section className="bg-cream py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col items-center text-center">
+            <img src={leaves} alt="" aria-hidden className="w-16 h-16 opacity-80" width={128} height={128} />
+            <div className="script text-3xl -mt-2 mb-3">Nutritional Value</div>
+            <p className="max-w-3xl mx-auto text-ink-soft leading-relaxed mt-2">
+              Mangoes are one of the most widely consumed fruits in the world and are not only delicious, but also nutritious.
+            </p>
+          </div>
+          <div className="mt-14 bg-white border border-ink/10 p-8 md:p-12 shadow-sm">
+            <p className="text-center text-ink font-light tracking-tight text-lg md:text-xl">
+              Mangoes are low in calories but full of nutrients. One cup (165 grams) of sliced mango provides:
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10 text-center">
+              {[
+                { label: "Calories", value: "99" },
+                { label: "Protein", value: "1.4 g" },
+                { label: "Carbs", value: "24.7 g" },
+                { label: "Fat", value: "0.6 g" },
+                { label: "Dietary fiber", value: "2.6 g" },
+                { label: "Vitamin C", value: "67% RDI" },
+                { label: "Copper", value: "20% RDI" },
+                { label: "Folate", value: "18% RDI" },
+                { label: "Vitamin B6", value: "11.6% RDI" },
+                { label: "Vitamin A", value: "10% RDI" },
+                { label: "Vitamin E", value: "9.7% RDI" },
+                { label: "Vitamin B5", value: "6.5% RDI" },
+                { label: "Vitamin K", value: "6% RDI" },
+                { label: "Niacin", value: "7% RDI" },
+                { label: "Potassium", value: "6% RDI" },
+                { label: "Riboflavin", value: "5% RDI" },
+                { label: "Manganese", value: "4.5% RDI" },
+                { label: "Thiamine", value: "4% RDI" },
+                { label: "Magnesium", value: "4% RDI" },
+              ].map((item) => (
+                <div key={item.label} className="p-4 border border-ink/5 bg-cream-2">
+                  <div className="text-2xl md:text-3xl font-light text-ink">{item.value}</div>
+                  <div className="text-sm uppercase tracking-wider text-ink-soft mt-1">{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Shipping CTA */}
       <section className="py-20 px-6 text-center bg-cream">
         <div className="script text-3xl">Nationwide Delivery</div>
