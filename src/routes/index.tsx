@@ -99,16 +99,25 @@ function Home() {
       </section>
 
       {/* STORY */}
-      <section id="story" className="py-14 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="script text-3xl text-orange">Our Story</div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink mt-1">King of Fruits</h2>
-          <div className="mt-6 space-y-4 text-ink font-medium leading-relaxed">
+      <section
+        id="story"
+        ref={storyRef}
+        className="relative py-16 md:py-24 px-6 bg-cream overflow-hidden"
+      >
+        <div
+          className={`max-w-5xl mx-auto text-center transition-all duration-1000 ease-out ${
+            storyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <div className="script text-3xl md:text-4xl text-orange">Our Story</div>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-ink mt-2">King of Fruits</h2>
+
+          <div className="mt-8 md:mt-10 max-w-3xl mx-auto space-y-5 md:space-y-6 text-ink font-medium leading-relaxed md:leading-[1.7] text-base md:text-lg text-balance">
             <p>
-              Known as the ’King of Fruits’ mangoes are a tropical fruit that originated in Pakistan and South East Asia around 5,000 years ago.
+              Known as the <span className="font-bold text-ink">King of Fruits</span>, mangoes are a tropical treasure that originated in Pakistan and South East Asia around 5,000 years ago.
             </p>
             <p>
-              We bring you the finest quality mangoes exclusively hand picked from our own family orchard.
+              We bring you the finest quality mangoes, exclusively hand picked from our own family orchard.
             </p>
             <p>
               With over seven different varieties offered, we take pride in producing some of the best mangoes in Pakistan.
@@ -119,9 +128,77 @@ function Home() {
             <p>
               Our premium mangoes are rich in vitamins, minerals and antioxidants and have been associated with many health benefits and improved immunity.
             </p>
-            <p>
+            <p className="font-bold text-ink">
               Our mangoes are 100% natural and mature carbide free.
             </p>
+          </div>
+
+          {/* Highlight cards */}
+          <div className="mt-10 md:mt-14 grid sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
+            {[
+              { icon: Hand, title: "Hand-picked", copy: "Every mango is selected with care from our family orchard." },
+              { icon: ShieldCheck, title: "Carbide free", copy: "100% natural ripening — no chemicals, no shortcuts." },
+              { icon: HeartPulse, title: "Health benefits", copy: "Packed with vitamins, minerals and antioxidants." },
+            ].map(({ icon: Icon, title, copy }, i) => (
+              <div
+                key={title}
+                className={`bg-cream-2 p-5 md:p-6 border border-ink/5 text-center hover:border-orange/40 hover:-translate-y-1 transition-all duration-300 ${
+                  storyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                }`}
+                style={{ transitionDelay: `${200 + i * 120}ms` }}
+              >
+                <div className="w-12 h-12 mx-auto rounded-full bg-orange/10 flex items-center justify-center">
+                  <Icon size={22} className="text-orange" strokeWidth={1.75} />
+                </div>
+                <h3 className="mt-4 text-sm md:text-base font-bold text-ink tracking-tight uppercase">{title}</h3>
+                <p className="mt-2 text-sm text-ink-soft leading-relaxed">{copy}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Explore Varieties CTA */}
+          <a
+            href="#varieties"
+            className="inline-flex items-center gap-3 mt-10 md:mt-14 px-8 md:px-10 py-3.5 md:py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition group"
+          >
+            Explore Varieties
+            <ArrowDown size={16} className="transition-transform group-hover:translate-y-1" />
+          </a>
+        </div>
+      </section>
+
+      {/* ORCHARD GALLERY */}
+      <section className="py-14 md:py-20 px-6 bg-cream-2">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-8 md:mb-12">
+            <div className="script text-3xl md:text-4xl text-orange">The Orchard</div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-ink mt-2">Glimpses of our family farm</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+            {[
+              { src: aboutSection.url, alt: "Mangoes hanging in the orchard" },
+              { src: aboutTree.url, alt: "Lush mango tree at the farm" },
+              { src: mangoHanging.url, alt: "Ripe mangoes on the branch" },
+              { src: welcomeCover.url, alt: "Sunset over the Imperial Mangoes orchard" },
+            ].map((img, i) => (
+              <div
+                key={i}
+                className={`relative overflow-hidden aspect-[4/5] group ${
+                  i === 0 ? "sm:col-span-2 lg:col-span-2 lg:row-span-2" : ""
+                }`}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  decoding="async"
+                  width={i === 0 ? 1200 : 600}
+                  height={i === 0 ? 900 : 750}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
