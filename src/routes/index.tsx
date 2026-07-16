@@ -171,16 +171,16 @@ function Home() {
       </section>
 
       {/* BENEFITS */}
-      <section id="benefits" className="bg-cream py-14 px-6">
+      <section id="benefits" className="bg-cream py-12 md:py-14 px-5 md:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="script text-3xl text-orange">Health Benefits</div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink mt-1">Nature's multivitamin</h2>
-            <p className="text-ink font-medium leading-relaxed mt-3">
+          <div className="text-center max-w-2xl mx-auto mb-8 md:mb-10 px-1">
+            <div className="script text-2xl md:text-3xl text-orange">Health Benefits</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink mt-1">Nature's multivitamin</h2>
+            <p className="text-ink leading-relaxed mt-3 text-sm md:text-base">
               Mango is rich in vitamins, minerals and antioxidants — supporting immunity, digestion, eye, skin and hair health.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {[
               { title: "High in antioxidants", copy: "Over a dozen polyphenols including mangiferin, functioning as powerful antioxidants inside your body." },
               { title: "Boosts Immunity", copy: "A good source of folate, several B vitamins, plus vitamins A, C, K and E — all supporting immunity." },
@@ -189,10 +189,10 @@ function Home() {
               { title: "Supports Eye Health", copy: "Lutein, zeaxanthin and vitamin A support eye health and help protect from sun damage." },
               { title: "Skin, Hair & Nails", copy: "Vitamin C gives skin elasticity and prevents wrinkling. Vitamin A promotes healthy hair." },
             ].map((b) => (
-              <div key={b.title} className="bg-cream-2 p-6 border border-ink/5 hover:border-orange/40 hover:-translate-y-1 transition-all duration-300 text-center">
+              <div key={b.title} className="bg-cream-2 p-5 md:p-6 border border-ink/5 hover:border-orange/40 hover:-translate-y-1 transition-all duration-300 text-center">
                 <div className="w-10 h-[2px] bg-orange mx-auto" />
-                <h3 className="mt-4 text-lg font-bold text-ink tracking-tight">{b.title}</h3>
-                <p className="mt-2 text-ink-soft leading-relaxed">{b.copy}</p>
+                <h3 className="mt-4 text-base md:text-lg font-semibold text-ink tracking-tight">{b.title}</h3>
+                <p className="mt-2 text-sm text-ink-soft leading-relaxed">{b.copy}</p>
               </div>
             ))}
           </div>
