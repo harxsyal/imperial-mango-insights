@@ -11,15 +11,15 @@
   --font-label: "Inter", system-ui, sans-serif;
   --font-script: "Cinzel", serif;
   /* Token names kept for compatibility; values re-mapped to the luxury palette */
-  --color-cream: #0a0a0a;        /* page background (was cream, now black) */
-  --color-cream-2: #151311;      /* lifted surface */
-  --color-ink: #f4ecd8;          /* ivory text (was near-black) */
-  --color-ink-soft: #b8a675;     /* warm muted gold-gray */
-  --color-orange: #c9a84c;       /* imperial gold accent */
-  --color-orange-dark: #a88835;  /* deeper gold hover */
+  --color-cream: #f6efe1;        /* cream page background */
+  --color-cream-2: #ece1c9;      /* lifted cream surface */
+  --color-ink: #1a1611;          /* deep ink text */
+  --color-ink-soft: #6b5e46;     /* soft warm ink */
+  --color-orange: #b8912f;       /* imperial gold accent */
+  --color-orange-dark: #8f6f22;  /* deeper gold hover */
   --color-pink: #8b1e2f;         /* burgundy accent for tags */
   --color-whatsapp: #25d366;
-  --color-hairline: rgba(201, 168, 76, 0.28);
+  --color-hairline: rgba(26, 22, 17, 0.15);
 }
 
 /*
