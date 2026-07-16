@@ -91,7 +91,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
                 aria-haspopup="menu"
                 aria-expanded={moreOpen}
               >
-                More
+                MORE
                 <ChevronDown size={14} className={`transition-transform ${moreOpen ? "rotate-180" : ""}`} />
                 <span
                   className={`absolute left-0 right-6 -bottom-0.5 h-[2px] bg-orange transition-transform origin-left ${
