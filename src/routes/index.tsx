@@ -28,22 +28,25 @@ function Home() {
   const featured = products.slice(0, 6);
   return (
     <div className="bg-cream min-h-screen">
-      <SiteHeader />
-
-      {/* Hero */}
-      <section className="relative w-full">
+      {/* Hero with overlay header */}
+      <section className="relative w-full h-[92vh] min-h-[560px] overflow-hidden">
         <img
           src={welcomeCover.url}
           alt="Imperial Mangoes — our family orchard"
-          className="w-full h-[70vh] min-h-[420px] md:h-[85vh] object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           width={1820}
           height={1200}
         />
-        <div className="text-center px-6 pt-14 pb-4">
-          <div className="script text-4xl md:text-5xl">Market</div>
-          <p className="mt-6 max-w-2xl mx-auto text-ink-soft leading-relaxed">
-            Handpicked from our own family orchard, we bring you the finest, freshest, and most flavourful
-            mangoes Pakistan has to offer — 100% natural, carbide free, and delivered nationwide.
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60" />
+        <SiteHeader overlay />
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+          <div className="script text-4xl md:text-6xl text-white/95 drop-shadow">Imperial</div>
+          <h1 className="mt-2 text-5xl md:text-7xl font-extralight tracking-tight text-white">
+            Kingdom of Mangoes
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-white/85 leading-relaxed">
+            Handpicked from our own family orchard — the finest, freshest, most flavourful
+            mangoes Pakistan has to offer. 100% natural, carbide free, delivered nationwide.
           </p>
           <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
             <Link
@@ -54,7 +57,7 @@ function Home() {
             </Link>
             <Link
               to="/contact"
-              className="px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-ink bg-white border border-black/10 hover:border-ink transition"
+              className="px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-white/10 backdrop-blur border border-white/40 hover:bg-white/20 transition"
             >
               Contact Us
             </Link>

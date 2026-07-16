@@ -9,17 +9,22 @@ const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-export function SiteHeader() {
+export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
+  const wrap = overlay
+    ? "absolute top-0 left-0 right-0 z-40 bg-transparent"
+    : "bg-cream sticky top-0 z-40 border-b border-black/5";
+  const textCls = overlay ? "text-white" : "text-ink";
+  const dotCls = overlay ? "text-orange" : "text-orange";
   return (
-    <header className="bg-cream sticky top-0 z-40 border-b border-black/5">
+    <header className={wrap}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-6">
-        <Link to="/" className="flex items-baseline text-[26px] tracking-tight leading-none">
-          <span className="font-normal text-ink">Imperial</span>
-          <span className="text-orange">.</span>
-          <span className="font-normal text-ink">Mangoes</span>
+        <Link to="/" className={`flex items-baseline text-[26px] tracking-tight leading-none ${textCls}`}>
+          <span className="font-normal">Imperial</span>
+          <span className={dotCls}>.</span>
+          <span className="font-normal">Mangoes</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-10 text-[13px] tracking-[0.18em] uppercase font-normal text-ink">
+        <nav className={`hidden md:flex items-center gap-10 text-[13px] tracking-[0.18em] uppercase font-normal ${textCls}`}>
           {nav.map((item) => (
             <Link
               key={item.to}
@@ -27,7 +32,7 @@ export function SiteHeader() {
               className="relative py-2 hover:text-orange transition"
               activeProps={{
                 className:
-                  "relative py-2 text-ink after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0 after:h-[3px] after:bg-orange",
+                  "relative py-2 after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0 after:h-[3px] after:bg-orange",
               }}
               activeOptions={{ exact: item.to === "/" }}
             >
@@ -36,7 +41,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-5 text-ink">
+        <div className={`flex items-center gap-5 ${textCls}`}>
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"

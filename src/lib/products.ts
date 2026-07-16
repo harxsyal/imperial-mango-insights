@@ -1,12 +1,24 @@
-import lalBadshah from "@/assets/products/lal-badshah.jpg";
-import sindhri from "@/assets/products/sindhri.jpg";
-import anwarRatol from "@/assets/products/anwar-ratol.jpg";
-import gulabKhas from "@/assets/products/gulab-khas.jpg";
-import langra from "@/assets/products/langra.jpg";
-import dusehri from "@/assets/products/dusehri.jpg";
-import blackChaunsa from "@/assets/products/black-chaunsa.jpg";
-import whiteChaunsa from "@/assets/products/white-chaunsa.jpg";
-import saroli from "@/assets/products/saroli.jpg";
+import lalBadshahA from "@/assets/products/lal_badshah.png.asset.json";
+import sindhriA from "@/assets/products/sindhri.png.asset.json";
+import anwarRatolA from "@/assets/products/anwar_ratol.png.asset.json";
+import gulabKhasA from "@/assets/products/ghulab_khas.png.asset.json";
+import langraA from "@/assets/products/langra.png.asset.json";
+import dusehriA from "@/assets/products/duseri.png.asset.json";
+import blackChaunsaA from "@/assets/products/black_chaunsa.png.asset.json";
+import whiteChaunsaA from "@/assets/products/white_chaunsa.png.asset.json";
+import saroliA from "@/assets/products/saroli.png.asset.json";
+import totaPuriA from "@/assets/products/Tota_puri.png.asset.json";
+
+const lalBadshah = lalBadshahA.url;
+const sindhri = sindhriA.url;
+const anwarRatol = anwarRatolA.url;
+const gulabKhas = gulabKhasA.url;
+const langra = langraA.url;
+const dusehri = dusehriA.url;
+const blackChaunsa = blackChaunsaA.url;
+const whiteChaunsa = whiteChaunsaA.url;
+const saroli = saroliA.url;
+const totaPuri = totaPuriA.url;
 
 export const WHATSAPP_NUMBER = "923001062646";
 export const PHONE_DISPLAY = "+92 300 10 MANGO";
@@ -188,6 +200,24 @@ export const products: Product[] = [
     sizes: [
       { label: "5 Kilogram", kg: 5, price: 2400 },
       { label: "9 Kilogram", kg: 9, price: 4200 },
+    ],
+  },
+  {
+    slug: "tota-puri",
+    name: "TOTA PURI",
+    img: totaPuri,
+    tag: null,
+    season: "June – August",
+    sku: "tp01",
+    priceRange: "₨ 2,300 – ₨ 4,100",
+    minPrice: 2300,
+    shortDesc:
+      "Distinctively beak-shaped mango with a tangy-sweet flavour and firm, aromatic flesh.",
+    description:
+      "Tota Puri is named for its parrot-beak shape and blushed green-gold skin. It offers a lively, tangy-sweet flavour with firm, fibre-less flesh — perfect for eating fresh or in traditional preserves.",
+    sizes: [
+      { label: "5 Kilogram", kg: 5, price: 2300 },
+      { label: "9 Kilogram", kg: 9, price: 4100 },
     ],
   },
 ];
