@@ -1,6 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import { WHATSAPP_NUMBER, PHONE_DISPLAY } from "@/lib/products";
-import { Search, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 
 const nav = [
   { href: "#home", label: "Home" },
