@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 
 @theme {
   --font-sans: "Jost", system-ui, sans-serif;
