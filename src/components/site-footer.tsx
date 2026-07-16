@@ -3,7 +3,7 @@ import { WHATSAPP_NUMBER, PHONE_DISPLAY } from "@/lib/products";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-ink border-t border-white/10 px-6 md:px-12 py-16 text-sm text-white/70">
+    <footer className="bg-black border-t border-white/10 px-6 md:px-12 py-16 text-sm text-white/70">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
         <div>
           <div className="text-[22px] mb-3 text-white leading-none">
