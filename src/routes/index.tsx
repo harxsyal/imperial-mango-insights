@@ -96,15 +96,27 @@ function Home() {
       <section id="story" className="py-14 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <div className="script text-3xl text-orange">Our Story</div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink mt-1">Kingdom of Mangoes</h2>
-          <p className="text-ink mt-4 leading-relaxed font-medium">
-            Pakistan is considered the ‘Kingdom of Mangoes’ and is the 5th largest mango producer in the world.
-            Our mangoes are world renowned and unsurpassable in freshness, quality, and flavour.
-          </p>
-          <p className="text-ink-soft mt-3 leading-relaxed">
-            Every fruit is handpicked from our family orchard — grown the traditional way, ripened naturally,
-            never touched by carbide, and shipped fresh across Pakistan.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink mt-1">King of Fruits</h2>
+          <div className="mt-6 space-y-4 text-ink font-medium leading-relaxed">
+            <p>
+              Known as the ’King of Fruits’ mangoes are a tropical fruit that originated in Pakistan and South East Asia around 5,000 years ago.
+            </p>
+            <p>
+              We bring you the finest quality mangoes exclusively hand picked from our own family orchard.
+            </p>
+            <p>
+              With over seven different varieties offered, we take pride in producing some of the best mangoes in Pakistan.
+            </p>
+            <p>
+              Each mango is carefully hand picked with love and care, ensuring that there is no compromise on quality.
+            </p>
+            <p>
+              Our premium mangoes are rich in vitamins, minerals and antioxidants and have been associated with many health benefits and improved immunity.
+            </p>
+            <p>
+              Our mangoes are 100% natural and mature carbide free.
+            </p>
+          </div>
         </div>
       </section>
 
