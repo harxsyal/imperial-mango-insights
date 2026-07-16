@@ -61,13 +61,13 @@ function Home() {
         </div>
       </section>
 
-      {/* Fresh Mangoes / Products */}
+      {/* Mango Varieties / Products */}
       <section className="px-6 py-24 max-w-7xl mx-auto">
         <div className="flex flex-col items-center">
           <SectionHeading
             script="Market"
-            title="Fresh Mangoes"
-            subtitle="With over seven premium varieties, harvested May through September — every mango handpicked from our family orchard."
+            title="Mango Varieties"
+            subtitle="With over seven different varieties offered, we take pride in producing some of the best mangoes in Pakistan."
           />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mt-16">
@@ -92,12 +92,11 @@ function Home() {
             <img src={leaves} alt="" aria-hidden className="w-16 h-16 opacity-80" width={128} height={128} />
             <div className="script text-3xl mt-1">Our Story</div>
             <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-ink mt-4">
-              Handpicked from our family orchard
+              Our Story
             </h2>
             <p className="text-ink-soft mt-6 leading-relaxed">
-              For generations, our family has tended to our orchard along the Indus with love, patience,
-              and a dedication to growing the finest mangoes Pakistan has to offer. Every fruit is
-              harvested at peak ripeness and packed with care — the way mangoes were meant to taste.
+              Pakistan is considered the ‘Kingdom of Mangoes’ and is the 5th largest mango producer in the world.
+              Our mangoes are world renowned and unsurpassable in freshness, quality, and flavour.
             </p>
             <Link
               to="/about"
@@ -128,16 +127,24 @@ function Home() {
         ))}
       </section>
 
-      {/* Quote */}
-      <section className="bg-cream-2 py-24 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
-          <div className="script text-3xl mb-4">Our Promise</div>
-          <blockquote className="text-2xl md:text-3xl font-extralight italic leading-relaxed text-ink">
-            “Each mango is carefully handpicked and packed with love and care, ensuring that there is no
-            compromise on quality.”
-          </blockquote>
-          <div className="mt-6 text-xs tracking-[0.25em] uppercase text-ink-soft">
-            — Imperial Mangoes Family
+      {/* Health Benefits */}
+      <section className="bg-cream-2 py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col items-center text-center">
+            <img src={leaves} alt="" aria-hidden className="w-16 h-16 opacity-80" width={128} height={128} />
+            <div className="script text-3xl -mt-2 mb-3">High in antioxidants</div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-10 mt-16 text-center">
+            {[
+              { title: "High in antioxidants", copy: "Mango has over a dozen different type of polyphenols, including mangiferin, which is especially powerful. Polyphenols function as antioxidants inside your body." },
+              { title: "Improves Skin Hair & Nails", copy: "Mango contains vitamin C, which gives your skin its elasticity and prevents sagging and wrinkling. It also provides vitamin A, which promotes healthy hair." },
+              { title: "Supports Eye Health", copy: "Mango contains lutein, zeaxanthin and vitamin A – which support eye health. Lutein and zeaxanthin may protect from the sun, while a lack of vitamin A can create vision problems." },
+            ].map((b) => (
+              <div key={b.title}>
+                <h3 className="text-2xl font-light text-ink tracking-tight">{b.title}</h3>
+                <p className="mt-4 text-ink-soft leading-relaxed">{b.copy}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
