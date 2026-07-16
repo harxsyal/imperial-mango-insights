@@ -1,12 +1,12 @@
-import banner from "@/assets/page-banner.jpg";
+import banner from "@/assets/about-section.jpg.asset.json";
 
 export function PageBanner({ title, script }: { title: string; script?: string }) {
   return (
     <section
-      className="relative w-full h-[46vh] min-h-[320px] flex flex-col items-center justify-center text-center overflow-hidden bg-cream-2"
+      className="relative w-full h-[38vh] md:h-[46vh] min-h-[260px] flex flex-col items-center justify-center text-center overflow-hidden bg-cream-2"
     >
       <img
-        src={banner}
+        src={banner.url}
         alt=""
         aria-hidden
         className="absolute inset-0 w-full h-full object-cover"
@@ -14,11 +14,11 @@ export function PageBanner({ title, script }: { title: string; script?: string }
         height={700}
       />
       <div className="absolute inset-0 bg-cream/55" />
-      <div className="relative z-10 px-6">
+      <div className="relative z-10 px-5 md:px-6 pt-20 md:pt-0">
         {script && (
-          <div className="script text-3xl md:text-4xl mb-2">{script}</div>
+          <div className="script text-2xl md:text-4xl mb-1 md:mb-2">{script}</div>
         )}
-        <h1 className="text-5xl md:text-7xl font-extralight text-ink tracking-tight">
+        <h1 className="text-3xl md:text-5xl lg:text-7xl font-semibold text-ink tracking-tight">
           {title}
         </h1>
       </div>

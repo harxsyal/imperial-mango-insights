@@ -66,35 +66,35 @@ function Home() {
 
   return (
     <div className="bg-cream min-h-screen">
-      <SiteHeader />
+      <SiteHeader overlay />
       {/* HERO */}
-      <section id="home" className="relative w-full pt-[80px] md:pt-[92px]">
-        <div className="relative w-full aspect-[16/9] min-h-[520px] overflow-hidden">
-        <img
-          src={welcomeCover.url}
-          alt="Imperial Mangoes orchard at golden hour"
-          className="absolute inset-0 w-full h-full object-cover"
-          width={1920}
-          height={1080}
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/70" />
-        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center text-center px-6 pb-10 md:pb-14">
-          <p className="max-w-2xl mx-auto text-white text-base md:text-lg font-medium leading-relaxed drop-shadow-lg">
-            Handpicked from our own family orchard — the finest, freshest, most flavourful
-            mangoes Pakistan has to offer. 100% natural, carbide free, delivered nationwide.
-          </p>
-          <div className="mt-6 md:mt-8 flex items-center justify-center gap-3 md:gap-4 flex-wrap">
-            <a href="#varieties" className="px-8 md:px-10 py-3.5 md:py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition">
-              Explore Varieties
-            </a>
-            <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer"
-              className="px-8 md:px-10 py-3.5 md:py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-white/10 backdrop-blur border border-white/40 hover:bg-white/20 transition">
-              Order on WhatsApp
-            </a>
+      <section id="home" className="relative w-full pt-[72px] md:pt-[92px]">
+        <div className="relative w-full aspect-[16/9] min-h-[420px] md:min-h-[520px] overflow-hidden">
+          <img
+            src={welcomeCover.url}
+            alt="Imperial Mangoes orchard at golden hour"
+            className="absolute inset-0 w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/70" />
+          <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center text-center px-5 md:px-6 pb-8 md:pb-14">
+            <p className="max-w-xl mx-auto text-white text-sm md:text-lg font-medium leading-relaxed md:leading-relaxed drop-shadow-lg">
+              Handpicked from our own family orchard — the finest, freshest, most flavourful
+              mangoes Pakistan has to offer. 100% natural, carbide free, delivered nationwide.
+            </p>
+            <div className="mt-5 md:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 w-full sm:w-auto">
+              <a href="#varieties" className="w-full sm:w-auto px-6 md:px-10 py-3.5 md:py-4 text-[11px] font-semibold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition text-center">
+                Explore Varieties
+              </a>
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer"
+                className="w-full sm:w-auto px-6 md:px-10 py-3.5 md:py-4 text-[11px] font-semibold tracking-[0.25em] uppercase text-white bg-white/10 backdrop-blur border border-white/40 hover:bg-white/20 transition text-center">
+                Order on WhatsApp
+              </a>
+            </div>
           </div>
-        </div>
         </div>
       </section>
 
@@ -102,27 +102,27 @@ function Home() {
       <section
         id="story"
         ref={storyRef}
-        className="relative py-16 md:py-24 px-6 bg-cream overflow-hidden"
+        className="relative py-14 md:py-24 px-5 md:px-6 bg-cream overflow-hidden"
       >
         <div
-          className={`max-w-5xl mx-auto text-center transition-all duration-1000 ease-out ${
+          className={`max-w-3xl mx-auto text-center transition-all duration-1000 ease-out ${
             storyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="script text-3xl md:text-4xl text-orange">Our Story</div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-ink mt-2">King of Fruits</h2>
+          <div className="script text-2xl md:text-4xl text-orange">Our Story</div>
+          <h2 className="text-2xl md:text-5xl font-semibold tracking-tight text-ink mt-1.5">King of Fruits</h2>
 
-          <div className="mt-8 md:mt-10 max-w-3xl mx-auto space-y-5 md:space-y-6 text-ink font-medium leading-relaxed md:leading-[1.7] text-base md:text-lg text-balance">
+          <div className="mt-6 md:mt-10 mx-auto space-y-5 md:space-y-6 text-ink leading-[1.75] md:leading-[1.8] text-[17px] md:text-lg text-balance">
             <p>
-              Known as the <span className="font-bold text-ink">King of Fruits</span>, mangoes are a tropical treasure that originated in Pakistan and South East Asia around 5,000 years ago. We bring you the finest quality mangoes, exclusively hand picked from our own family orchard, and take pride in producing some of the best mangoes in Pakistan across seven distinctive varieties.
+              Known as the <span className="font-semibold text-ink">King of Fruits</span>, mangoes are a tropical treasure that originated in Pakistan and South East Asia around 5,000 years ago. We bring you the finest quality mangoes, exclusively hand picked from our own family orchard, and take pride in producing some of the best mangoes in Pakistan across seven distinctive varieties.
             </p>
-            <p className="font-bold text-ink">
-              Each mango is carefully selected with love and care, ensuring that there is no compromise on quality. Our premium mangoes are rich in vitamins, minerals and antioxidants, supporting health benefits and improved immunity — 100% natural and mature carbide free.
+            <p>
+              Each mango is carefully selected with love and care, ensuring that there is no compromise on quality. Our premium mangoes are rich in vitamins, minerals and antioxidants, supporting health benefits and improved immunity — <span className="font-semibold text-ink">100% natural and mature carbide free</span>.
             </p>
           </div>
 
           {/* Highlight cards */}
-          <div className="mt-10 md:mt-14 grid sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
+          <div className="mt-8 md:mt-14 grid sm:grid-cols-3 gap-3 md:gap-6 max-w-3xl mx-auto">
             {[
               { icon: Hand, title: "Hand-picked", copy: "Every mango is selected with care from our family orchard." },
               { icon: ShieldCheck, title: "Carbide free", copy: "100% natural ripening — no chemicals, no shortcuts." },
@@ -132,10 +132,10 @@ function Home() {
                 key={title}
                 className="bg-cream-2 p-5 md:p-6 border border-ink/5 text-center hover:border-orange/40 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-12 h-12 mx-auto rounded-full bg-orange/10 flex items-center justify-center">
-                  <Icon size={22} className="text-orange" strokeWidth={1.75} />
+                <div className="w-11 h-11 md:w-12 md:h-12 mx-auto rounded-full bg-orange/10 flex items-center justify-center">
+                  <Icon size={20} className="text-orange" strokeWidth={1.75} />
                 </div>
-                <h3 className="mt-4 text-sm md:text-base font-bold text-ink tracking-tight uppercase">{title}</h3>
+                <h3 className="mt-3 md:mt-4 text-sm md:text-base font-semibold text-ink tracking-tight uppercase">{title}</h3>
                 <p className="mt-2 text-sm text-ink-soft leading-relaxed">{copy}</p>
               </div>
             ))}
@@ -144,7 +144,7 @@ function Home() {
           {/* Explore Varieties CTA */}
           <a
             href="#varieties"
-            className="inline-flex items-center gap-3 mt-10 md:mt-14 px-8 md:px-10 py-3.5 md:py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition group"
+            className="inline-flex items-center gap-3 mt-8 md:mt-14 px-6 md:px-10 py-3 md:py-4 text-[11px] font-semibold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition group"
           >
             Explore Varieties
             <ArrowDown size={16} className="transition-transform group-hover:translate-y-1" />
@@ -154,15 +154,15 @@ function Home() {
 
 
       {/* VARIETIES */}
-      <section id="varieties" className="px-6 py-14 bg-cream-2">
+      <section id="varieties" className="px-5 md:px-6 py-12 md:py-14 bg-cream-2">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink">Mango Varieties</h2>
-            <p className="mt-3 text-ink font-medium leading-relaxed">
+          <div className="text-center max-w-2xl mx-auto px-1">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink">Mango Varieties</h2>
+            <p className="mt-2 md:mt-3 text-ink leading-relaxed text-sm md:text-base">
               With over seven different varieties offered, we take pride in producing some of the best mangoes in Pakistan.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10 mt-10 justify-items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-3 md:gap-x-6 gap-y-8 md:gap-y-10 mt-8 md:mt-10 justify-items-center">
             {products.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
@@ -171,16 +171,16 @@ function Home() {
       </section>
 
       {/* BENEFITS */}
-      <section id="benefits" className="bg-cream py-14 px-6">
+      <section id="benefits" className="bg-cream py-12 md:py-14 px-5 md:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="script text-3xl text-orange">Health Benefits</div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink mt-1">Nature's multivitamin</h2>
-            <p className="text-ink font-medium leading-relaxed mt-3">
+          <div className="text-center max-w-2xl mx-auto mb-8 md:mb-10 px-1">
+            <div className="script text-2xl md:text-3xl text-orange">Health Benefits</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink mt-1">Nature's multivitamin</h2>
+            <p className="text-ink leading-relaxed mt-3 text-sm md:text-base">
               Mango is rich in vitamins, minerals and antioxidants — supporting immunity, digestion, eye, skin and hair health.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {[
               { title: "High in antioxidants", copy: "Over a dozen polyphenols including mangiferin, functioning as powerful antioxidants inside your body." },
               { title: "Boosts Immunity", copy: "A good source of folate, several B vitamins, plus vitamins A, C, K and E — all supporting immunity." },
@@ -189,10 +189,10 @@ function Home() {
               { title: "Supports Eye Health", copy: "Lutein, zeaxanthin and vitamin A support eye health and help protect from sun damage." },
               { title: "Skin, Hair & Nails", copy: "Vitamin C gives skin elasticity and prevents wrinkling. Vitamin A promotes healthy hair." },
             ].map((b) => (
-              <div key={b.title} className="bg-cream-2 p-6 border border-ink/5 hover:border-orange/40 hover:-translate-y-1 transition-all duration-300 text-center">
+              <div key={b.title} className="bg-cream-2 p-5 md:p-6 border border-ink/5 hover:border-orange/40 hover:-translate-y-1 transition-all duration-300 text-center">
                 <div className="w-10 h-[2px] bg-orange mx-auto" />
-                <h3 className="mt-4 text-lg font-bold text-ink tracking-tight">{b.title}</h3>
-                <p className="mt-2 text-ink-soft leading-relaxed">{b.copy}</p>
+                <h3 className="mt-4 text-base md:text-lg font-semibold text-ink tracking-tight">{b.title}</h3>
+                <p className="mt-2 text-sm text-ink-soft leading-relaxed">{b.copy}</p>
               </div>
             ))}
           </div>
@@ -200,24 +200,24 @@ function Home() {
       </section>
 
       {/* NUTRITION */}
-      <section id="nutrition" className="bg-cream-2 py-14 px-6">
+      <section id="nutrition" className="bg-cream-2 py-12 md:py-14 px-5 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto">
-            <div className="script text-3xl text-orange">Nutritional Value</div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink mt-1">One cup, packed.</h2>
-            <p className="text-ink font-medium leading-relaxed mt-3">
+          <div className="text-center max-w-2xl mx-auto px-1">
+            <div className="script text-2xl md:text-3xl text-orange">Nutritional Value</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink mt-1">One cup, packed.</h2>
+            <p className="text-ink leading-relaxed mt-3 text-sm md:text-base">
               One cup (165 g) of sliced mango — low in calories, rich in nutrients.
             </p>
           </div>
 
           {/* Animated tabs */}
-          <div className="mt-8 flex justify-center">
+          <div className="mt-6 md:mt-8 flex justify-center px-1">
             <div className="inline-flex bg-white border border-ink/10 p-1 rounded-full shadow-sm">
               {tabKeys.map((key) => (
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
-                  className={`relative px-6 md:px-8 py-2.5 text-xs md:text-sm uppercase tracking-[0.2em] font-bold rounded-full transition-colors ${
+                  className={`relative px-4 md:px-8 py-2 md:py-2.5 text-[11px] md:text-sm uppercase tracking-[0.15em] md:tracking-[0.2em] font-semibold rounded-full transition-colors ${
                     activeTab === key ? "text-white" : "text-ink hover:text-orange"
                   }`}
                 >
@@ -230,20 +230,20 @@ function Home() {
             </div>
           </div>
 
-          <div key={activeTab} className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
+          <div key={activeTab} className="mt-6 md:mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
             {NUTRITION_TABS[activeTab].map((item) => (
-              <div key={item.label} className="p-4 bg-white border border-ink/5 text-center hover:border-orange/40 transition">
-                <div className="text-2xl md:text-3xl font-bold text-orange">{item.value}</div>
-                <div className="text-xs uppercase tracking-wider text-ink font-semibold mt-1.5">{item.label}</div>
+              <div key={item.label} className="p-3 md:p-4 bg-white border border-ink/5 text-center hover:border-orange/40 transition">
+                <div className="text-xl md:text-3xl font-semibold text-orange">{item.value}</div>
+                <div className="text-[10px] md:text-xs uppercase tracking-wider text-ink font-semibold mt-1.5">{item.label}</div>
               </div>
             ))}
           </div>
 
-          <div className="mt-10">
+          <div className="mt-8 md:mt-10">
             <img
               src={varietiesMix.url}
               alt="Assorted mango varieties"
-              className="w-full max-h-64 object-cover"
+              className="w-full max-h-48 md:max-h-64 object-cover"
               loading="lazy"
               decoding="async"
               width={1600}
@@ -254,7 +254,7 @@ function Home() {
       </section>
 
       {/* CONTACT / CTA */}
-      <section id="contact" className="relative py-16 px-6 overflow-hidden">
+      <section id="contact" className="relative py-12 md:py-16 px-5 md:px-6 overflow-hidden">
         <img
           src={mangoCrate.url}
           alt=""
@@ -267,9 +267,9 @@ function Home() {
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative max-w-2xl mx-auto text-center text-white">
-          <div className="script text-3xl text-orange">Order Fresh</div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-1">Shipping All Over Pakistan</h2>
-          <p className="mt-3 text-white font-medium leading-relaxed">
+          <div className="script text-2xl md:text-3xl text-orange">Order Fresh</div>
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mt-1">Shipping All Over Pakistan</h2>
+          <p className="mt-3 text-white leading-relaxed text-sm md:text-base">
             Fill in your details and we'll deliver straight to your door — same-day pick, pack and ship.
           </p>
           <ContactForm />

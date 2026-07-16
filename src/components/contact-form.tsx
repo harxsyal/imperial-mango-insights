@@ -44,12 +44,12 @@ export function ContactForm() {
   };
 
   const fieldCls =
-    "w-full bg-white/95 text-ink placeholder:text-ink/40 border border-white/30 focus:border-orange focus:outline-none px-4 py-3 text-sm font-medium";
+    "w-full bg-white/95 text-ink placeholder:text-ink/40 border border-white/30 focus:border-orange focus:outline-none px-3 md:px-4 py-3 text-sm font-medium";
   const errCls = "text-xs text-orange mt-1 font-semibold";
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-8 grid gap-4 text-left">
-      <div className="grid md:grid-cols-2 gap-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-6 md:mt-8 grid gap-3 md:gap-4 text-left">
+      <div className="grid md:grid-cols-2 gap-3 md:gap-4">
         <div>
           <input {...register("name")} placeholder="Full name" className={fieldCls} autoComplete="name" />
           {errors.name && <p className={errCls}>{errors.name.message}</p>}
@@ -76,11 +76,11 @@ export function ContactForm() {
         />
         {errors.message && <p className={errCls}>{errors.message.message}</p>}
       </div>
-      <div className="flex flex-col sm:flex-row items-center gap-4 justify-center pt-2">
+      <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 justify-center pt-1 md:pt-2">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="px-10 py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition disabled:opacity-60"
+          className="w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 text-[11px] font-semibold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition disabled:opacity-60"
         >
           {isSubmitting ? "Sending…" : "Send Order Enquiry"}
         </button>

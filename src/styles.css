@@ -156,15 +156,20 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; }
     background-color: var(--color-cream);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-weight: 300;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
-    font-weight: 300;
+    font-weight: 500;
     letter-spacing: -0.01em;
   }
+}
+
+@media (max-width: 768px) {
+  html { scroll-padding-top: 72px; }
+  h1, h2, h3, h4, h5, h6 { letter-spacing: 0; }
 }
 
 @utility script {
