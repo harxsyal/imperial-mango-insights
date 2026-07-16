@@ -2,7 +2,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { getProduct, whatsappOrderUrl, type Size } from "@/lib/products";
+import { ProductCard } from "@/components/product-card";
+import { getProduct, whatsappOrderUrl, products, type Size } from "@/lib/products";
 
 export const Route = createFileRoute("/shop/$slug")({
   loader: ({ params }) => {
@@ -22,60 +23,73 @@ export const Route = createFileRoute("/shop/$slug")({
       ],
     };
   },
-  component: Product,
+  component: ProductPage,
   notFoundComponent: () => (
-    <div className="min-h-screen flex items-center justify-center">
-      Product not found. <Link to="/shop" className="ml-2 underline">Back to shop</Link>
+    <div className="min-h-screen flex items-center justify-center bg-cream">
+      <div>Product not found. <Link to="/shop" className="underline text-orange">Back to shop</Link></div>
     </div>
   ),
   errorComponent: ({ error }) => (
-    <div className="min-h-screen flex items-center justify-center text-sm">
+    <div className="min-h-screen flex items-center justify-center bg-cream text-sm">
       Error loading product: {error.message}
     </div>
   ),
 });
 
-const CREAM = "#FBF5EB";
-const ACCENT = "#F5A623";
-const INK = "#2B2B2B";
-
-function Product() {
+function ProductPage() {
   const { product } = Route.useLoaderData();
   const [sizeIdx, setSizeIdx] = useState(0);
   const [qty, setQty] = useState(1);
   const size = product.sizes[sizeIdx];
+  const related = products.filter((p) => p.slug !== product.slug).slice(0, 3);
 
   return (
-    <div style={{ backgroundColor: CREAM, color: INK, fontFamily: "'Jost', system-ui, sans-serif", fontWeight: 300 }} className="min-h-screen">
+    <div className="bg-cream min-h-screen">
       <SiteHeader />
-      <div className="px-6 md:px-16 pt-6 text-xs opacity-70">
-        <Link to="/">Home</Link> → <Link to="/shop">Shop</Link> → <span>{product.name}</span>
+
+      <div className="max-w-7xl mx-auto px-6 pt-8 text-[11px] tracking-[0.2em] uppercase text-ink-soft">
+        <Link to="/" className="hover:text-orange">Home</Link>
+        <span className="mx-2">/</span>
+        <Link to="/shop" className="hover:text-orange">Shop</Link>
+        <span className="mx-2">/</span>
+        <span className="text-ink">{product.name}</span>
       </div>
-      <section className="px-6 md:px-16 py-10 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-        <div className="relative overflow-hidden aspect-square" style={{ backgroundColor: "#F3EBDA" }}>
+
+      <section className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-16">
+        <div className="relative overflow-hidden aspect-square bg-cream-2">
           {product.tag && (
-            <span className="absolute top-4 left-4 z-10 text-[10px] tracking-[0.2em] px-3 py-1 text-white uppercase"
-              style={{ backgroundColor: product.tag === "Best Seller" ? "#E5325B" : ACCENT }}>
+            <span
+              className={`absolute top-4 left-4 z-10 text-[10px] tracking-[0.2em] px-3 py-1 text-white uppercase ${
+                product.tag === "Best Seller" ? "bg-pink" : "bg-orange"
+              }`}
+            >
               {product.tag}
             </span>
           )}
           <img src={product.img} alt={product.name} width={1000} height={1000} className="w-full h-full object-cover" />
         </div>
-        <div>
-          <h1 className="text-4xl md:text-5xl font-light tracking-tight">{product.name}</h1>
-          <div className="text-2xl mt-4" style={{ color: "#E5325B" }}>{product.priceRange}</div>
-          <div className="text-xs opacity-60 mt-2 tracking-wide">SKU: {product.sku} | Season: {product.season}</div>
-          <p className="mt-6 opacity-80 leading-relaxed">{product.description}</p>
 
-          <div className="mt-8">
-            <div className="text-xs tracking-[0.2em] uppercase mb-3">Kilogram</div>
+        <div>
+          <h1 className="text-4xl md:text-5xl font-extralight tracking-tight text-ink">{product.name}</h1>
+          <div className="mt-4 text-2xl text-ink-soft font-light">{product.priceRange}</div>
+          <div className="text-[11px] tracking-[0.25em] uppercase text-ink-soft mt-3">
+            SKU: {product.sku} · Season: {product.season}
+          </div>
+          <p className="mt-8 text-ink-soft leading-relaxed">{product.description}</p>
+
+          <div className="mt-10">
+            <div className="text-[11px] tracking-[0.25em] uppercase text-ink mb-3">Kilogram</div>
             <div className="flex gap-2">
               {product.sizes.map((s: Size, i: number) => (
-                <button key={s.label} onClick={() => setSizeIdx(i)}
-                  className="text-[11px] tracking-[0.15em] px-4 py-2 uppercase transition"
-                  style={i === sizeIdx
-                    ? { backgroundColor: INK, color: "white", border: `1px solid ${INK}` }
-                    : { border: `1px solid rgba(0,0,0,0.15)`, color: INK }}>
+                <button
+                  key={s.label}
+                  onClick={() => setSizeIdx(i)}
+                  className={`px-5 py-3 text-[11px] tracking-[0.2em] uppercase transition ${
+                    i === sizeIdx
+                      ? "bg-ink text-white border border-ink"
+                      : "bg-white text-ink border border-black/10 hover:border-ink"
+                  }`}
+                >
                   {s.label}
                 </button>
               ))}
@@ -83,42 +97,58 @@ function Product() {
           </div>
 
           <div className="mt-6 flex items-center gap-4">
-            <div className="flex items-center border" style={{ borderColor: "rgba(0,0,0,0.2)" }}>
-              <button onClick={() => setQty((q) => Math.max(1, q - 1))} className="px-3 py-2">−</button>
+            <div className="flex items-center border border-black/15 bg-white">
+              <button onClick={() => setQty((q) => Math.max(1, q - 1))} className="px-3 py-2 hover:text-orange" aria-label="Decrease">−</button>
               <span className="px-4 min-w-10 text-center">{qty}</span>
-              <button onClick={() => setQty((q) => q + 1)} className="px-3 py-2">+</button>
+              <button onClick={() => setQty((q) => q + 1)} className="px-3 py-2 hover:text-orange" aria-label="Increase">+</button>
             </div>
-            <div className="text-sm">
-              <span style={{ color: "#E5325B" }} className="text-lg">₨ {(size.price * qty).toLocaleString()}</span>
-              <span className="opacity-60"> total</span>
+            <div className="text-ink-soft">
+              Total: <span className="text-ink text-lg">₨ {(size.price * qty).toLocaleString()}</span>
             </div>
           </div>
 
-          <a href={whatsappOrderUrl({
+          <a
+            href={whatsappOrderUrl({
               product: product.name,
               size: size.label,
               price: size.price,
               quantity: qty,
               url: `https://imperialmangoes.com/shop/${product.slug}/`,
             })}
-            target="_blank" rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center justify-center w-full py-4 text-xs tracking-[0.25em] uppercase text-white transition hover:brightness-110"
-            style={{ backgroundColor: "#25D366" }}>
-            💬 Buy via WhatsApp
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center justify-center w-full py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
+          >
+            Buy via WhatsApp
           </a>
 
-          <div className="mt-10">
-            <div className="text-sm font-medium mb-3">Product Details</div>
-            <ul className="text-sm opacity-75 space-y-1 list-disc pl-5">
+          <div className="mt-12 border-t border-black/10 pt-8">
+            <div className="text-[11px] tracking-[0.25em] uppercase text-ink mb-3">Product Details</div>
+            <ul className="text-ink-soft space-y-1 list-disc pl-5">
               <li>100% Carbide Free</li>
               <li>100% Natural</li>
               <li>Rich in Vitamin A, C, iron, folate and magnesium</li>
               <li>Naturally Ripened</li>
-              <li>Store in cool and dry place</li>
+              <li>Store in a cool and dry place</li>
             </ul>
           </div>
         </div>
       </section>
+
+      <section className="bg-cream-2 py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <div className="script text-3xl">Also from the orchard</div>
+            <h2 className="text-3xl md:text-4xl font-extralight text-ink mt-2">Related Varieties</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+            {related.map((p) => (
+              <ProductCard key={p.slug} product={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <SiteFooter />
     </div>
   );

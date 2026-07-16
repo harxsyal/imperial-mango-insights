@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { WHATSAPP_NUMBER, PHONE_DISPLAY } from "@/lib/products";
-
-const ACCENT = "#F5A623";
+import { Search, ShoppingBag } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -12,48 +11,49 @@ const nav = [
 
 export function SiteHeader() {
   return (
-    <>
-      <div
-        className="w-full text-xs px-6 py-2 flex flex-wrap items-center justify-between gap-3"
-        style={{ backgroundColor: "#2B2B2B", color: "#FBF5EB" }}
-      >
-        <div className="flex items-center gap-4">
-          <a href={`tel:${WHATSAPP_NUMBER}`} className="hover:opacity-80">📞 {PHONE_DISPLAY}</a>
-          <a href="https://www.facebook.com/imperialmangoes" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">Facebook</a>
-          <a href="https://www.instagram.com/imperialmangoes/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">Instagram</a>
-        </div>
-        <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-3 py-1 rounded-full text-xs"
-          style={{ backgroundColor: "#25D366", color: "white" }}
-        >
-          💬 Order on WhatsApp
-        </a>
-      </div>
-      <header
-        className="flex items-center justify-between px-8 md:px-16 py-6"
-        style={{ backgroundColor: "#FBF5EB" }}
-      >
-        <Link to="/" className="flex items-baseline gap-1 text-2xl tracking-tight">
-          <span className="font-light">Imperial</span>
-          <span style={{ color: ACCENT }} className="font-medium">Mangoes</span>
+    <header className="bg-cream sticky top-0 z-40 border-b border-black/5">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-6">
+        <Link to="/" className="flex items-baseline text-[26px] tracking-tight leading-none">
+          <span className="font-normal text-ink">Imperial</span>
+          <span className="text-orange">.</span>
+          <span className="font-normal text-ink">Mangoes</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-10 text-xs tracking-[0.2em] uppercase">
+
+        <nav className="hidden md:flex items-center gap-10 text-[13px] tracking-[0.18em] uppercase font-normal text-ink">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="hover:opacity-70 transition"
-              activeProps={{ style: { borderBottom: `2px solid ${ACCENT}`, paddingBottom: 4 } }}
+              className="relative py-2 hover:text-orange transition"
+              activeProps={{
+                className:
+                  "relative py-2 text-ink after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0 after:h-[3px] after:bg-orange",
+              }}
               activeOptions={{ exact: item.to === "/" }}
             >
               {item.label}
             </Link>
           ))}
         </nav>
-      </header>
-    </>
+
+        <div className="flex items-center gap-5 text-ink">
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`WhatsApp ${PHONE_DISPLAY}`}
+            className="relative"
+          >
+            <ShoppingBag size={20} strokeWidth={1.25} />
+            <span className="absolute -top-2 -right-2 text-[10px] w-4 h-4 rounded-full flex items-center justify-center text-white bg-pink">
+              0
+            </span>
+          </a>
+          <button aria-label="Search" className="hover:text-orange transition">
+            <Search size={20} strokeWidth={1.25} />
+          </button>
+        </div>
+      </div>
+    </header>
   );
 }

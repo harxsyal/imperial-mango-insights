@@ -1,186 +1,162 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { products, whatsappOrderUrl, WHATSAPP_NUMBER } from "@/lib/products";
+import { SectionHeading } from "@/components/section-heading";
+import { ProductCard } from "@/components/product-card";
+import { products, WHATSAPP_NUMBER } from "@/lib/products";
+import banner from "@/assets/mango-banner.jpg";
+import leaves from "@/assets/mango-leaves.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Imperial Mangoes — King of Fruits · Kingdom of Pakistan" },
+      { title: "Imperial Mangoes — Fresh & Organic Pakistani Mangoes" },
       {
         name: "description",
         content:
-          "Handpicked from our own family orchard, we bring you the finest, freshest, and most flavourful mangoes Pakistan has to offer — 100% natural, carbide free.",
+          "Handpicked from our family orchard, we bring you the finest Pakistani mangoes — 100% natural, carbide free, shipped all over Pakistan.",
       },
       { property: "og:title", content: "Imperial Mangoes — Kingdom of Pakistan" },
-      { property: "og:description", content: "Handpicked from our family orchard — 100% natural, carbide free." },
+      { property: "og:description", content: "Handpicked, carbide-free Pakistani mangoes shipped nationwide." },
     ],
   }),
 });
 
-const CREAM = "#FBF5EB";
-const ACCENT = "#F5A623";
-const INK = "#2B2B2B";
-
-const badges = [
-  { icon: "🌿", label: "100% Natural" },
-  { icon: "🚫", label: "Carbide Free" },
-  { icon: "👐", label: "Hand Picked" },
-  { icon: "🏡", label: "Family Orchard" },
-  { icon: "🚚", label: "All Pakistan" },
-  { icon: "🥭", label: "7+ Varieties" },
-];
-
 function Home() {
-  const featured = products.slice(0, 4);
+  const featured = products.slice(0, 6);
   return (
-    <div style={{ backgroundColor: CREAM, color: INK, fontFamily: "'Jost', system-ui, sans-serif", fontWeight: 300 }} className="min-h-screen">
+    <div className="bg-cream min-h-screen">
       <SiteHeader />
 
       {/* Hero */}
-      <section className="px-6 pt-16 pb-8 text-center">
-        <div style={{ fontFamily: "'Sacramento', cursive", color: ACCENT }} className="text-4xl mb-2">
-          King of Fruits · Kingdom of Pakistan
-        </div>
-        <div className="text-6xl mb-4">🥭</div>
-        <h1 className="text-5xl md:text-7xl font-light tracking-tight max-w-4xl mx-auto leading-[1.05]">
-          Imperial<span style={{ color: ACCENT }}>Mangoes</span>
+      <section className="pt-16 pb-8 text-center px-6">
+        <img src={leaves} alt="" aria-hidden className="mx-auto w-24 h-24 opacity-80" width={200} height={200} />
+        <div className="script text-4xl md:text-5xl -mt-2">Market</div>
+        <h1 className="mt-6 text-5xl md:text-7xl font-extralight tracking-tight text-ink">
+          Fresh &amp; Organic Mangoes
         </h1>
-        <p className="max-w-2xl mx-auto mt-8 text-base opacity-70 leading-relaxed">
-          Handpicked from our own family orchard, we bring you the finest, freshest, and most flavourful mangoes Pakistan has to offer — 100% natural, carbide free.
+        <p className="mt-8 max-w-2xl mx-auto text-ink-soft leading-relaxed">
+          Handpicked from our own family orchard, we bring you the finest, freshest, and most flavourful
+          mangoes Pakistan has to offer — 100% natural, carbide free, and delivered nationwide.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
-          <Link to="/shop" className="px-10 py-4 text-xs tracking-[0.25em] uppercase text-white transition hover:brightness-110"
-            style={{ backgroundColor: ACCENT }}>
-            🛒 Shop Now
+          <Link
+            to="/shop"
+            className="px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
+          >
+            Read More
           </Link>
-          <Link to="/about" className="px-10 py-4 text-xs tracking-[0.25em] uppercase transition hover:bg-black hover:text-white"
-            style={{ border: `1px solid ${INK}` }}>
-            Our Story
+          <Link
+            to="/contact"
+            className="px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-ink bg-white border border-black/10 hover:border-ink transition"
+          >
+            Contact Us
+          </Link>
+        </div>
+
+        <img
+          src={banner}
+          alt="Fresh Pakistani mangoes"
+          className="mt-16 w-full max-w-6xl mx-auto"
+          width={1920}
+          height={700}
+        />
+      </section>
+
+      {/* Fresh Mangoes / Products */}
+      <section className="px-6 py-24 max-w-7xl mx-auto">
+        <div className="flex flex-col items-center">
+          <SectionHeading
+            script="Market"
+            title="Fresh Mangoes"
+            subtitle="With over seven premium varieties, harvested May through September — every mango handpicked from our family orchard."
+          />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mt-16">
+          {featured.map((p) => (
+            <ProductCard key={p.slug} product={p} />
+          ))}
+        </div>
+        <div className="mt-16 text-center">
+          <Link
+            to="/shop"
+            className="inline-block px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
+          >
+            View All Varieties
           </Link>
         </div>
       </section>
 
-      {/* Trust badges */}
-      <section className="px-6 py-16 max-w-6xl mx-auto grid grid-cols-3 md:grid-cols-6 gap-6 text-center">
-        {badges.map((b) => (
-          <div key={b.label}>
-            <div className="text-3xl mb-2">{b.icon}</div>
-            <div className="text-xs tracking-[0.15em] uppercase opacity-80">{b.label}</div>
+      {/* Our Story split band */}
+      <section className="bg-cream-2 py-24 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+          <div>
+            <img src={leaves} alt="" aria-hidden className="w-16 h-16 opacity-80" width={128} height={128} />
+            <div className="script text-3xl mt-1">Our Story</div>
+            <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-ink mt-4">
+              Handpicked from our family orchard
+            </h2>
+            <p className="text-ink-soft mt-6 leading-relaxed">
+              For generations, our family has tended to our orchard along the Indus with love, patience,
+              and a dedication to growing the finest mangoes Pakistan has to offer. Every fruit is
+              harvested at peak ripeness and packed with care — the way mangoes were meant to taste.
+            </p>
+            <Link
+              to="/about"
+              className="mt-8 inline-block px-8 py-3 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
+            >
+              Read More
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <img src={products[1].img} alt="Sindhri mango" className="w-full aspect-[3/4] object-cover" width={600} height={800} loading="lazy" />
+            <img src={products[6].img} alt="Black Chaunsa mango" className="w-full aspect-[3/4] object-cover mt-10" width={600} height={800} loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      {/* Info bands */}
+      <section className="max-w-6xl mx-auto py-24 px-6 grid md:grid-cols-3 gap-12 text-center">
+        {[
+          { title: "Organic Farming", copy: "Traditional methods, zero chemicals — the way our grandfathers grew mangoes." },
+          { title: "Fresh Products", copy: "Cut this morning, packed this afternoon, on their way to you by evening." },
+          { title: "Market Hours", copy: "MON – FRI · 10am – 9pm\nSATURDAY · 10am – 6pm\nSUNDAY · 10am – 3pm" },
+        ].map((b) => (
+          <div key={b.title}>
+            <img src={leaves} alt="" aria-hidden className="mx-auto w-12 h-12 opacity-80" width={96} height={96} />
+            <h3 className="mt-3 text-2xl font-light text-ink tracking-tight">{b.title}</h3>
+            <p className="mt-4 text-ink-soft leading-relaxed whitespace-pre-line">{b.copy}</p>
           </div>
         ))}
       </section>
 
-      {/* Products */}
-      <section className="px-6 pb-24 text-center">
-        <div style={{ fontFamily: "'Sacramento', cursive", color: ACCENT }} className="text-3xl mb-2">
-          Handpicked From Our Family Orchard
-        </div>
-        <h2 className="text-4xl md:text-5xl font-light tracking-tight">Our Finest Varieties</h2>
-        <p className="mt-4 opacity-70 max-w-xl mx-auto">
-          With over 7 different varieties, we take pride in producing some of the best mangoes in Pakistan.
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-14 px-4">
-          {featured.map((p) => (
-            <div key={p.slug} className="text-left group">
-              <Link to="/shop/$slug" params={{ slug: p.slug }} className="block relative overflow-hidden aspect-square" style={{ backgroundColor: "#F3EBDA" }}>
-                {p.tag && (
-                  <span className="absolute top-4 left-4 z-10 text-[10px] tracking-[0.2em] px-3 py-1 text-white uppercase"
-                    style={{ backgroundColor: p.tag === "Best Seller" ? "#E5325B" : ACCENT }}>
-                    {p.tag}
-                  </span>
-                )}
-                <img src={p.img} alt={`${p.name} mango`} loading="lazy" width={800} height={800}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              </Link>
-              <div className="text-xs opacity-60 mt-4">🗓 {p.season}</div>
-              <h3 className="mt-1 text-lg tracking-wide">
-                <Link to="/shop/$slug" params={{ slug: p.slug }}>{p.name}</Link>
-              </h3>
-              <p className="text-sm opacity-60 mt-1 leading-relaxed">{p.shortDesc}</p>
-              <div className="mt-3 text-sm">
-                <span style={{ color: "#E5325B" }}>{p.priceRange}</span>
-                <span className="opacity-50"> per box · varies by size</span>
-              </div>
-              <div className="mt-4 flex gap-3">
-                <Link to="/shop/$slug" params={{ slug: p.slug }}
-                  className="text-[11px] tracking-[0.2em] uppercase pb-1"
-                  style={{ borderBottom: `1px solid ${ACCENT}`, color: ACCENT }}>
-                  View Details
-                </Link>
-                <a href={whatsappOrderUrl({ product: p.name, price: p.minPrice, url: `https://imperialmangoes.com/shop/${p.slug}/` })}
-                  target="_blank" rel="noopener noreferrer"
-                  className="text-[11px] tracking-[0.2em] uppercase pb-1"
-                  style={{ borderBottom: "1px solid #25D366", color: "#25D366" }}>
-                  💬 WhatsApp
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <Link to="/shop" className="inline-block mt-14 text-sm tracking-[0.2em] uppercase pb-1"
-          style={{ borderBottom: `1px solid ${INK}` }}>
-          View All Varieties →
-        </Link>
-      </section>
-
-      {/* Heritage */}
-      <section className="px-6 py-24 text-center" style={{ backgroundColor: "#F3EBDA" }}>
-        <div className="text-4xl mb-2">🌳</div>
-        <div style={{ fontFamily: "'Sacramento', cursive", color: ACCENT }} className="text-3xl mb-2">
-          Our Heritage
-        </div>
-        <h2 className="text-3xl md:text-5xl font-light max-w-3xl mx-auto leading-tight">
-          Pakistan — The Kingdom of Mangoes
-        </h2>
-        <div className="max-w-3xl mx-auto mt-8 space-y-4 opacity-75 leading-relaxed">
-          <p>
-            Mangoes are a tropical fruit that originated in South East Asia around 5,000 years ago. Pakistan is considered the 'Kingdom of Mangoes' and is the 5th largest mango producer in the world.
-          </p>
-          <p>
-            Our mangoes are world renowned and unsurpassable in freshness, quality, and flavour. We bring you the finest mangoes exclusively handpicked from our own family orchard.
-          </p>
-        </div>
-        <div className="mt-12 grid grid-cols-3 gap-6 max-w-2xl mx-auto">
-          {[
-            { n: "5th", l: "Largest Producer" },
-            { n: "7+", l: "Varieties" },
-            { n: "100%", l: "Natural" },
-          ].map((s) => (
-            <div key={s.l}>
-              <div className="text-4xl font-light" style={{ color: ACCENT }}>{s.n}</div>
-              <div className="text-xs tracking-[0.2em] uppercase mt-1 opacity-70">{s.l}</div>
-            </div>
-          ))}
-        </div>
-        <Link to="/about" className="inline-block mt-12 text-xs tracking-[0.25em] uppercase pb-1"
-          style={{ borderBottom: `1px solid ${ACCENT}`, color: ACCENT }}>
-          Read Our Full Story
-        </Link>
-      </section>
-
       {/* Quote */}
-      <section className="px-6 py-24 text-center max-w-3xl mx-auto">
-        <blockquote className="text-2xl md:text-3xl font-light italic leading-relaxed">
-          “Each mango is carefully handpicked and packed with love and care, ensuring that there is no compromise on quality.”
-        </blockquote>
-        <div className="mt-6 text-xs tracking-[0.25em] uppercase opacity-60">
-          — Imperial Mangoes Family
+      <section className="bg-cream-2 py-24 px-6 text-center">
+        <div className="max-w-3xl mx-auto">
+          <div className="script text-3xl mb-4">Our Promise</div>
+          <blockquote className="text-2xl md:text-3xl font-extralight italic leading-relaxed text-ink">
+            “Each mango is carefully handpicked and packed with love and care, ensuring that there is no
+            compromise on quality.”
+          </blockquote>
+          <div className="mt-6 text-xs tracking-[0.25em] uppercase text-ink-soft">
+            — Imperial Mangoes Family
+          </div>
         </div>
       </section>
 
       {/* Shipping CTA */}
-      <section className="px-6 py-16 text-center" style={{ backgroundColor: INK, color: CREAM }}>
-        <div className="text-4xl mb-3">🚚</div>
-        <div className="text-2xl font-light">Shipping All Over Pakistan</div>
-        <div className="opacity-70 mt-2">Fresh from our orchard to your doorstep</div>
-        <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer"
-          className="inline-block mt-8 px-10 py-4 text-xs tracking-[0.25em] uppercase text-white"
-          style={{ backgroundColor: "#25D366" }}>
-          💬 Order Now · +92 300 10 MANGO
+      <section className="py-20 px-6 text-center bg-cream">
+        <div className="script text-3xl">Nationwide Delivery</div>
+        <h2 className="text-3xl md:text-4xl font-extralight text-ink mt-2">Shipping All Over Pakistan</h2>
+        <p className="mt-3 text-ink-soft">Fresh from our orchard to your doorstep.</p>
+        <a
+          href={`https://wa.me/${WHATSAPP_NUMBER}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 inline-block px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
+        >
+          Order on WhatsApp
         </a>
       </section>
 
