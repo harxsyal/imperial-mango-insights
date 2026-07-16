@@ -164,41 +164,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ORCHARD GALLERY */}
-      <section className="py-14 md:py-20 px-6 bg-cream-2">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8 md:mb-12">
-            <div className="script text-3xl md:text-4xl text-orange">The Orchard</div>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-ink mt-2">Glimpses of our family farm</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-            {[
-              { src: aboutSection.url, alt: "Mangoes hanging in the orchard" },
-              { src: aboutTree.url, alt: "Lush mango tree at the farm" },
-              { src: mangoHanging.url, alt: "Ripe mangoes on the branch" },
-              { src: welcomeCover.url, alt: "Sunset over the Imperial Mangoes orchard" },
-            ].map((img, i) => (
-              <div
-                key={i}
-                className={`relative overflow-hidden aspect-[4/5] group ${
-                  i === 0 ? "sm:col-span-2 lg:col-span-2 lg:row-span-2" : ""
-                }`}
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  decoding="async"
-                  width={i === 0 ? 1200 : 600}
-                  height={i === 0 ? 900 : 750}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* VARIETIES */}
       <section id="varieties" className="px-6 py-14 bg-cream-2">
