@@ -68,33 +68,33 @@ function Home() {
     <div className="bg-cream min-h-screen">
       <SiteHeader />
       {/* HERO */}
-      <section id="home" className="relative w-full pt-[80px] md:pt-[92px]">
-        <div className="relative w-full aspect-[16/9] min-h-[520px] overflow-hidden">
-        <img
-          src={welcomeCover.url}
-          alt="Imperial Mangoes orchard at golden hour"
-          className="absolute inset-0 w-full h-full object-cover"
-          width={1920}
-          height={1080}
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/70" />
-        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center text-center px-6 pb-10 md:pb-14">
-          <p className="max-w-2xl mx-auto text-white text-base md:text-lg font-medium leading-relaxed drop-shadow-lg">
-            Handpicked from our own family orchard — the finest, freshest, most flavourful
-            mangoes Pakistan has to offer. 100% natural, carbide free, delivered nationwide.
-          </p>
-          <div className="mt-6 md:mt-8 flex items-center justify-center gap-3 md:gap-4 flex-wrap">
-            <a href="#varieties" className="px-8 md:px-10 py-3.5 md:py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition">
-              Explore Varieties
-            </a>
-            <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer"
-              className="px-8 md:px-10 py-3.5 md:py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-white/10 backdrop-blur border border-white/40 hover:bg-white/20 transition">
-              Order on WhatsApp
-            </a>
+      <section id="home" className="relative w-full pt-[72px] md:pt-[92px]">
+        <div className="relative w-full aspect-[16/9] min-h-[420px] md:min-h-[520px] overflow-hidden">
+          <img
+            src={welcomeCover.url}
+            alt="Imperial Mangoes orchard at golden hour"
+            className="absolute inset-0 w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/70" />
+          <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center text-center px-5 md:px-6 pb-8 md:pb-14">
+            <p className="max-w-xl mx-auto text-white text-sm md:text-lg font-medium leading-relaxed md:leading-relaxed drop-shadow-lg">
+              Handpicked from our own family orchard — the finest, freshest, most flavourful
+              mangoes Pakistan has to offer. 100% natural, carbide free, delivered nationwide.
+            </p>
+            <div className="mt-5 md:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 w-full sm:w-auto">
+              <a href="#varieties" className="w-full sm:w-auto px-6 md:px-10 py-3.5 md:py-4 text-[11px] font-semibold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition text-center">
+                Explore Varieties
+              </a>
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer"
+                className="w-full sm:w-auto px-6 md:px-10 py-3.5 md:py-4 text-[11px] font-semibold tracking-[0.25em] uppercase text-white bg-white/10 backdrop-blur border border-white/40 hover:bg-white/20 transition text-center">
+                Order on WhatsApp
+              </a>
+            </div>
           </div>
-        </div>
         </div>
       </section>
 
