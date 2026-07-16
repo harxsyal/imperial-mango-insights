@@ -171,3 +171,25 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; }
   font-family: var(--font-script);
   color: var(--color-orange);
 }
+
+@keyframes reveal-up {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+@utility reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
