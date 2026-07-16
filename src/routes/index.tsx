@@ -66,7 +66,7 @@ function Home() {
 
   return (
     <div className="bg-cream min-h-screen">
-      <SiteHeader />
+      <SiteHeader overlay />
       {/* HERO */}
       <section id="home" className="relative w-full pt-[72px] md:pt-[92px]">
         <div className="relative w-full aspect-[16/9] min-h-[420px] md:min-h-[520px] overflow-hidden">
