@@ -62,6 +62,7 @@ type TabKey = keyof typeof NUTRITION_TABS;
 function Home() {
   const [activeTab, setActiveTab] = useState<TabKey>("Macros");
   const tabKeys = Object.keys(NUTRITION_TABS) as TabKey[];
+  const { ref: storyRef, inView: storyVisible } = useInView();
 
   return (
     <div className="bg-cream min-h-screen">
