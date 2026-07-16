@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { WHATSAPP_NUMBER, PHONE_DISPLAY } from "@/lib/products";
 
 export function SiteFooter() {
@@ -16,10 +15,12 @@ export function SiteFooter() {
         <div>
           <div className="text-xs tracking-[0.25em] uppercase mb-4 text-white">Explore</div>
           <ul className="space-y-2">
-            <li><Link to="/" className="hover:text-orange">Home</Link></li>
-            <li><Link to="/shop" className="hover:text-orange">Shop</Link></li>
-            <li><Link to="/about" className="hover:text-orange">Our Story</Link></li>
-            <li><Link to="/contact" className="hover:text-orange">Contact</Link></li>
+            <li><a href="#home" className="hover:text-orange">Home</a></li>
+            <li><a href="#varieties" className="hover:text-orange">Varieties</a></li>
+            <li><a href="#story" className="hover:text-orange">Our Story</a></li>
+            <li><a href="#benefits" className="hover:text-orange">Benefits</a></li>
+            <li><a href="#nutrition" className="hover:text-orange">Nutrition</a></li>
+            <li><a href="#contact" className="hover:text-orange">Contact</a></li>
           </ul>
         </div>
         <div>
