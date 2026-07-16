@@ -154,15 +154,15 @@ function Home() {
 
 
       {/* VARIETIES */}
-      <section id="varieties" className="px-6 py-14 bg-cream-2">
+      <section id="varieties" className="px-5 md:px-6 py-12 md:py-14 bg-cream-2">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink">Mango Varieties</h2>
-            <p className="mt-3 text-ink font-medium leading-relaxed">
+          <div className="text-center max-w-2xl mx-auto px-1">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink">Mango Varieties</h2>
+            <p className="mt-2 md:mt-3 text-ink leading-relaxed text-sm md:text-base">
               With over seven different varieties offered, we take pride in producing some of the best mangoes in Pakistan.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10 mt-10 justify-items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-3 md:gap-x-6 gap-y-8 md:gap-y-10 mt-8 md:mt-10 justify-items-center">
             {products.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
