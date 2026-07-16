@@ -200,24 +200,24 @@ function Home() {
       </section>
 
       {/* NUTRITION */}
-      <section id="nutrition" className="bg-cream-2 py-14 px-6">
+      <section id="nutrition" className="bg-cream-2 py-12 md:py-14 px-5 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto">
-            <div className="script text-3xl text-orange">Nutritional Value</div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink mt-1">One cup, packed.</h2>
-            <p className="text-ink font-medium leading-relaxed mt-3">
+          <div className="text-center max-w-2xl mx-auto px-1">
+            <div className="script text-2xl md:text-3xl text-orange">Nutritional Value</div>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink mt-1">One cup, packed.</h2>
+            <p className="text-ink leading-relaxed mt-3 text-sm md:text-base">
               One cup (165 g) of sliced mango — low in calories, rich in nutrients.
             </p>
           </div>
 
           {/* Animated tabs */}
-          <div className="mt-8 flex justify-center">
+          <div className="mt-6 md:mt-8 flex justify-center px-1">
             <div className="inline-flex bg-white border border-ink/10 p-1 rounded-full shadow-sm">
               {tabKeys.map((key) => (
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
-                  className={`relative px-6 md:px-8 py-2.5 text-xs md:text-sm uppercase tracking-[0.2em] font-bold rounded-full transition-colors ${
+                  className={`relative px-4 md:px-8 py-2 md:py-2.5 text-[11px] md:text-sm uppercase tracking-[0.15em] md:tracking-[0.2em] font-semibold rounded-full transition-colors ${
                     activeTab === key ? "text-white" : "text-ink hover:text-orange"
                   }`}
                 >
@@ -230,20 +230,20 @@ function Home() {
             </div>
           </div>
 
-          <div key={activeTab} className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
+          <div key={activeTab} className="mt-6 md:mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
             {NUTRITION_TABS[activeTab].map((item) => (
-              <div key={item.label} className="p-4 bg-white border border-ink/5 text-center hover:border-orange/40 transition">
-                <div className="text-2xl md:text-3xl font-bold text-orange">{item.value}</div>
-                <div className="text-xs uppercase tracking-wider text-ink font-semibold mt-1.5">{item.label}</div>
+              <div key={item.label} className="p-3 md:p-4 bg-white border border-ink/5 text-center hover:border-orange/40 transition">
+                <div className="text-xl md:text-3xl font-semibold text-orange">{item.value}</div>
+                <div className="text-[10px] md:text-xs uppercase tracking-wider text-ink font-semibold mt-1.5">{item.label}</div>
               </div>
             ))}
           </div>
 
-          <div className="mt-10">
+          <div className="mt-8 md:mt-10">
             <img
               src={varietiesMix.url}
               alt="Assorted mango varieties"
-              className="w-full max-h-64 object-cover"
+              className="w-full max-h-48 md:max-h-64 object-cover"
               loading="lazy"
               decoding="async"
               width={1600}
