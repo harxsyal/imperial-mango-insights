@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { getProduct, whatsappOrderUrl } from "@/lib/products";
+import { getProduct, whatsappOrderUrl, type Size } from "@/lib/products";
 
 export const Route = createFileRoute("/shop/$slug")({
   loader: ({ params }) => {
@@ -70,7 +70,7 @@ function Product() {
           <div className="mt-8">
             <div className="text-xs tracking-[0.2em] uppercase mb-3">Kilogram</div>
             <div className="flex gap-2">
-              {product.sizes.map((s, i) => (
+              {product.sizes.map((s: Size, i: number) => (
                 <button key={s.label} onClick={() => setSizeIdx(i)}
                   className="text-[11px] tracking-[0.15em] px-4 py-2 uppercase transition"
                   style={i === sizeIdx
