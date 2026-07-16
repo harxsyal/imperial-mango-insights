@@ -5,16 +5,21 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: "Jost", system-ui, sans-serif;
-  --font-script: "Sacramento", cursive;
-  --color-cream: #fbf3e4;
-  --color-cream-2: #f3ead6;
-  --color-ink: #303030;
-  --color-ink-soft: #6b6b6b;
-  --color-orange: #f5a623;
-  --color-orange-dark: #e0951a;
-  --color-pink: #e5325b;
+  /* Imperial Mangoes — black + gold luxury */
+  --font-sans: "Cormorant Garamond", "Times New Roman", serif;
+  --font-display: "Cinzel", "Trajan Pro", serif;
+  --font-label: "Inter", system-ui, sans-serif;
+  --font-script: "Cinzel", serif;
+  /* Token names kept for compatibility; values re-mapped to the luxury palette */
+  --color-cream: #0a0a0a;        /* page background (was cream, now black) */
+  --color-cream-2: #151311;      /* lifted surface */
+  --color-ink: #f4ecd8;          /* ivory text (was near-black) */
+  --color-ink-soft: #b8a675;     /* warm muted gold-gray */
+  --color-orange: #c9a84c;       /* imperial gold accent */
+  --color-orange-dark: #a88835;  /* deeper gold hover */
+  --color-pink: #8b1e2f;         /* burgundy accent for tags */
   --color-whatsapp: #25d366;
+  --color-hairline: rgba(201, 168, 76, 0.28);
 }
 
 /*
@@ -154,18 +159,37 @@
     background-color: var(--color-cream);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-weight: 300;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-sans);
-    font-weight: 300;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 }
 
 @utility script {
   font-family: var(--font-script);
   color: var(--color-orange);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+@utility label {
+  font-family: var(--font-label);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+@utility gold-rule {
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background: var(--color-orange);
 }
