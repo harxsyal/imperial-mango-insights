@@ -60,9 +60,10 @@ function Home() {
 
   return (
     <div className="bg-cream min-h-screen">
-      <SiteHeader overlay />
+      <SiteHeader />
       {/* HERO */}
-      <section id="home" className="relative w-full h-[92vh] min-h-[600px] overflow-hidden">
+      <section id="home" className="relative w-full pt-[80px] md:pt-[92px]">
+        <div className="relative w-full aspect-[16/9] min-h-[520px] overflow-hidden">
         <img
           src={welcomeCover.url}
           alt="Imperial Mangoes orchard at golden hour"
@@ -72,21 +73,22 @@ function Home() {
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-          <p className="mt-6 max-w-2xl mx-auto text-white text-lg font-medium leading-relaxed drop-shadow">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/70" />
+        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center text-center px-6 pb-10 md:pb-14">
+          <p className="max-w-2xl mx-auto text-white text-base md:text-lg font-medium leading-relaxed drop-shadow-lg">
             Handpicked from our own family orchard — the finest, freshest, most flavourful
             mangoes Pakistan has to offer. 100% natural, carbide free, delivered nationwide.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
-            <a href="#varieties" className="px-10 py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition">
+          <div className="mt-6 md:mt-8 flex items-center justify-center gap-3 md:gap-4 flex-wrap">
+            <a href="#varieties" className="px-8 md:px-10 py-3.5 md:py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition">
               Explore Varieties
             </a>
             <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer"
-              className="px-10 py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-white/10 backdrop-blur border border-white/40 hover:bg-white/20 transition">
+              className="px-8 md:px-10 py-3.5 md:py-4 text-[11px] font-bold tracking-[0.25em] uppercase text-white bg-white/10 backdrop-blur border border-white/40 hover:bg-white/20 transition">
               Order on WhatsApp
             </a>
           </div>
+        </div>
         </div>
       </section>
 
