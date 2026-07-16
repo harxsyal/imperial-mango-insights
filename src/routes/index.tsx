@@ -132,13 +132,21 @@ function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center">
             <img src={leaves} alt="" aria-hidden className="w-16 h-16 opacity-80" width={128} height={128} />
-            <div className="script text-3xl -mt-2 mb-3">High in antioxidants</div>
+            <div className="script text-3xl -mt-2 mb-3">Health Benefits</div>
+            <p className="max-w-3xl mx-auto text-ink-soft leading-relaxed mt-2">
+              Mango is rich in vitamins, minerals and antioxidants and has been associated with many health benefits,
+              including potential anticancer effects as well as improved immunity, digestive, eye, skin and hair health.
+              Best of all, it's tasty and easy to add to your diet!
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-10 mt-16 text-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16 text-center">
             {[
               { title: "High in antioxidants", copy: "Mango has over a dozen different type of polyphenols, including mangiferin, which is especially powerful. Polyphenols function as antioxidants inside your body." },
+              { title: "Boosts Immunity", copy: "Mango is a good source of folate, several B vitamins, as well as vitamins A, C, K and E — all of which help boost immunity." },
+              { title: "Supports Heart Health", copy: "Mango contains magnesium, potassium and the antioxidant mangiferin, which all support healthy heart function." },
+              { title: "Improves Digestive Health", copy: "Mango has digestive enzymes, water, dietary fiber and other compounds that aid different aspects of digestive health." },
+              { title: "Supports Eye Health", copy: "Mango contains lutein, zeaxanthin and vitamin A — which support eye health. Lutein and zeaxanthin may protect from the sun, while a lack of vitamin A can create vision problems." },
               { title: "Improves Skin Hair & Nails", copy: "Mango contains vitamin C, which gives your skin its elasticity and prevents sagging and wrinkling. It also provides vitamin A, which promotes healthy hair." },
-              { title: "Supports Eye Health", copy: "Mango contains lutein, zeaxanthin and vitamin A – which support eye health. Lutein and zeaxanthin may protect from the sun, while a lack of vitamin A can create vision problems." },
             ].map((b) => (
               <div key={b.title}>
                 <h3 className="text-2xl font-light text-ink tracking-tight">{b.title}</h3>
