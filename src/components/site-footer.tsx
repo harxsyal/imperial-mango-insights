@@ -4,15 +4,15 @@ import { Facebook, Instagram, Phone, MessageCircle, MapPin } from "lucide-react"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-black px-6 md:px-12 pt-16 pb-8 text-sm text-white/70">
-      <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <footer className="bg-black px-5 md:px-12 pt-12 md:pt-16 pb-6 md:pb-8 text-sm text-white/70">
+      <div className="max-w-7xl mx-auto grid gap-8 md:gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <img src={logo.url} alt="Imperial Mangoes" className="h-16 w-auto" />
-          <p className="mt-5 max-w-xs leading-relaxed">
+          <img src={logo.url} alt="Imperial Mangoes" className="h-12 md:h-16 w-auto" />
+          <p className="mt-4 md:mt-5 max-w-xs leading-relaxed">
             <span className="text-orange font-semibold">King of Fruits · Kingdom of Pakistan.</span><br />
             Handpicked from our family orchard — 100% natural, carbide free, delivered fresh across Pakistan.
           </p>
-          <div className="flex items-center gap-3 mt-5">
+          <div className="flex items-center gap-3 mt-4 md:mt-5">
             <a href="https://www.facebook.com/imperialmangoes" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 grid place-items-center border border-white/20 hover:border-orange hover:text-orange transition">
               <Facebook size={16} />
             </a>
@@ -26,7 +26,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <div className="text-xs tracking-[0.25em] uppercase mb-4 text-white font-bold">Explore</div>
+          <div className="text-xs tracking-[0.25em] uppercase mb-3 md:mb-4 text-white font-semibold">Explore</div>
           <ul className="space-y-2.5">
             <li><a href="#home" className="hover:text-orange transition">Home</a></li>
             <li><a href="#varieties" className="hover:text-orange transition">Varieties</a></li>
@@ -35,7 +35,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <div className="text-xs tracking-[0.25em] uppercase mb-4 text-white font-bold">More</div>
+          <div className="text-xs tracking-[0.25em] uppercase mb-3 md:mb-4 text-white font-semibold">More</div>
           <ul className="space-y-2.5">
             <li><a href="#benefits" className="hover:text-orange transition">Health Benefits</a></li>
             <li><a href="#nutrition" className="hover:text-orange transition">Nutrition</a></li>
@@ -44,7 +44,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <div className="text-xs tracking-[0.25em] uppercase mb-4 text-white font-bold">Get In Touch</div>
+          <div className="text-xs tracking-[0.25em] uppercase mb-3 md:mb-4 text-white font-semibold">Get In Touch</div>
           <ul className="space-y-3">
             <li className="flex items-start gap-2.5">
               <Phone size={14} className="mt-1 text-orange shrink-0" />
@@ -62,9 +62,9 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-14 pt-6 border-t border-white/10 text-xs flex flex-wrap gap-2 justify-between text-white/50">
+      <div className="max-w-7xl mx-auto mt-10 md:mt-14 pt-5 md:pt-6 border-t border-white/10 text-xs flex flex-col md:flex-row gap-2 justify-between text-white/50 text-center md:text-left">
         <span>© {new Date().getFullYear()} Imperial Mangoes. All rights reserved.</span>
-        <span>Made with 🥭 in Pakistan</span>
+        <span>Made with mango in Pakistan</span>
       </div>
     </footer>
   );
