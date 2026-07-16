@@ -92,12 +92,11 @@ function Home() {
             <img src={leaves} alt="" aria-hidden className="w-16 h-16 opacity-80" width={128} height={128} />
             <div className="script text-3xl mt-1">Our Story</div>
             <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-ink mt-4">
-              Handpicked from our family orchard
+              Kingdom of Mangoes
             </h2>
             <p className="text-ink-soft mt-6 leading-relaxed">
-              For generations, our family has tended to our orchard along the Indus with love, patience,
-              and a dedication to growing the finest mangoes Pakistan has to offer. Every fruit is
-              harvested at peak ripeness and packed with care — the way mangoes were meant to taste.
+              Pakistan is considered the ‘Kingdom of Mangoes’ and is the 5th largest mango producer in the world.
+              Our mangoes are world renowned and unsurpassable in freshness, quality, and flavour.
             </p>
             <Link
               to="/about"
