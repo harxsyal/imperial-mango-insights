@@ -92,7 +92,7 @@ function Home() {
             <img src={leaves} alt="" aria-hidden className="w-16 h-16 opacity-80" width={128} height={128} />
             <div className="script text-3xl mt-1">Our Story</div>
             <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-ink mt-4">
-              Kingdom of Mangoes
+              Our Story
             </h2>
             <p className="text-ink-soft mt-6 leading-relaxed">
               Pakistan is considered the ‘Kingdom of Mangoes’ and is the 5th largest mango producer in the world.
