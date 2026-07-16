@@ -3,7 +3,6 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageBanner } from "@/components/page-banner";
 import { WHATSAPP_NUMBER } from "@/lib/products";
-import leaves from "@/assets/mango-leaves.png";
 import banner from "@/assets/mango-banner.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -32,8 +31,7 @@ function About() {
       <PageBanner script="Our Heritage" title="About Us" />
 
       <section className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <img src={leaves} alt="" aria-hidden className="mx-auto w-16 h-16 opacity-80" width={128} height={128} />
-        <div className="script text-3xl md:text-4xl mt-1">Our Story</div>
+        <div className="script text-3xl md:text-4xl">Our Story</div>
         <h2 className="text-4xl md:text-5xl font-extralight text-ink mt-4 tracking-tight">
           A Family Legacy
         </h2>
@@ -46,7 +44,7 @@ function About() {
       <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-12 text-center">
         {promises.map((p) => (
           <div key={p.title}>
-            <img src={leaves} alt="" aria-hidden className="mx-auto w-16 h-16 opacity-70" width={128} height={128} />
+            <div className="w-10 h-[2px] bg-orange mx-auto" />
             <h3 className="mt-4 text-2xl font-light text-ink">{p.title}</h3>
             <p className="mt-3 text-ink-soft leading-relaxed">{p.copy}</p>
           </div>

@@ -4,11 +4,11 @@ import { whatsappOrderUrl } from "@/lib/products";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="group text-center">
+    <div className="group text-center w-full max-w-[320px] flex flex-col">
       <Link
         to="/shop/$slug"
         params={{ slug: product.slug }}
-        className="block relative overflow-hidden aspect-square bg-cream-2"
+        className="block relative overflow-hidden aspect-square bg-cream-2 rounded-sm"
       >
         {product.tag && (
           <span
@@ -25,27 +25,34 @@ export function ProductCard({ product }: { product: Product }) {
           loading="lazy"
           width={800}
           height={800}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <span className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-[10px] tracking-[0.25em] uppercase text-white bg-orange px-4 py-2">
+          View
+        </span>
       </Link>
 
-      <div className="text-[11px] tracking-[0.2em] uppercase text-ink-soft mt-6">
+      <div className="text-[10px] tracking-[0.25em] uppercase text-ink-soft mt-5 font-semibold">
         {product.season}
       </div>
-      <h3 className="mt-2 text-xl font-light text-ink tracking-tight">
-        <Link to="/shop/$slug" params={{ slug: product.slug }} className="hover:text-orange">
+      <h3 className="mt-1.5 text-lg font-bold text-ink tracking-tight uppercase">
+        <Link to="/shop/$slug" params={{ slug: product.slug }} className="hover:text-orange transition">
           {product.name}
         </Link>
       </h3>
-      <div className="mt-2 text-ink-soft">{product.priceRange}</div>
+      <p className="mt-2 text-sm text-ink-soft leading-relaxed line-clamp-3 min-h-[3.75rem]">
+        {product.shortDesc}
+      </p>
+      <div className="mt-2 text-sm font-semibold text-orange">{product.priceRange}</div>
 
-      <div className="mt-5 flex items-center justify-center gap-3">
+      <div className="mt-4 flex items-center justify-center gap-2 flex-wrap">
         <Link
           to="/shop/$slug"
           params={{ slug: product.slug }}
-          className="px-5 py-2.5 text-[11px] tracking-[0.2em] uppercase text-white bg-orange hover:bg-orange-dark transition"
+          className="px-4 py-2 text-[10px] tracking-[0.2em] uppercase font-bold text-white bg-orange hover:bg-orange-dark transition"
         >
-          Read More
+          Details
         </Link>
         <a
           href={whatsappOrderUrl({
@@ -55,7 +62,7 @@ export function ProductCard({ product }: { product: Product }) {
           })}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-5 py-2.5 text-[11px] tracking-[0.2em] uppercase text-ink bg-white border border-black/10 hover:border-ink transition"
+          className="px-4 py-2 text-[10px] tracking-[0.2em] uppercase font-bold text-ink bg-white border border-black/10 hover:border-ink transition"
         >
           WhatsApp
         </a>

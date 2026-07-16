@@ -6,7 +6,6 @@ import { ProductCard } from "@/components/product-card";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { ContactForm } from "@/components/contact-form";
 import { products, WHATSAPP_NUMBER } from "@/lib/products";
-import leaves from "@/assets/mango-leaves.png";
 import welcomeCover from "@/assets/welcome-cover.jpg.asset.json";
 import varietiesMix from "@/assets/varieties-mix.png.asset.json";
 import mangoCrate from "@/assets/mango-crate.jpg.asset.json";
@@ -143,9 +142,9 @@ function Home() {
               { title: "Supports Eye Health", copy: "Lutein, zeaxanthin and vitamin A support eye health and help protect from sun damage." },
               { title: "Skin, Hair & Nails", copy: "Vitamin C gives skin elasticity and prevents wrinkling. Vitamin A promotes healthy hair." },
             ].map((b) => (
-              <div key={b.title} className="bg-cream-2 p-6 border border-ink/5 hover:border-orange/40 transition">
-                <img src={leaves} alt="" aria-hidden className="w-9 h-9 opacity-80" width={40} height={40} loading="lazy" />
-                <h3 className="mt-2 text-lg font-bold text-ink tracking-tight">{b.title}</h3>
+              <div key={b.title} className="bg-cream-2 p-6 border border-ink/5 hover:border-orange/40 hover:-translate-y-1 transition-all duration-300 text-center">
+                <div className="w-10 h-[2px] bg-orange mx-auto" />
+                <h3 className="mt-4 text-lg font-bold text-ink tracking-tight">{b.title}</h3>
                 <p className="mt-2 text-ink-soft leading-relaxed">{b.copy}</p>
               </div>
             ))}
