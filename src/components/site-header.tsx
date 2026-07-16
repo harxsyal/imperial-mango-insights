@@ -1,6 +1,7 @@
 import { WHATSAPP_NUMBER, PHONE_DISPLAY } from "@/lib/products";
 import { ShoppingBag } from "lucide-react";
 import logo from "@/assets/imperial-mangoes-logo.png.asset.json";
+import { useActiveSection } from "@/hooks/use-active-section";
 
 const nav = [
   { href: "#home", label: "Home" },
@@ -12,6 +13,7 @@ const nav = [
 ] as const;
 
 export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
+  const active = useActiveSection(nav.map((n) => n.href.replace("#", "")));
   const wrap = overlay
     ? "absolute top-0 left-0 right-0 z-40 bg-transparent"
     : "bg-cream sticky top-0 z-40 border-b border-black/5";
@@ -28,11 +30,23 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
         </a>
 
         <nav className={`hidden md:flex items-center gap-10 text-[13px] tracking-[0.18em] uppercase font-semibold ${textCls}`}>
-          {nav.map((item) => (
-            <a key={item.href} href={item.href} className="relative py-2 hover:text-orange transition">
-              {item.label}
-            </a>
-          ))}
+          {nav.map((item) => {
+            const isActive = active === item.href.replace("#", "");
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`relative py-2 transition ${isActive ? "text-orange" : "hover:text-orange"}`}
+              >
+                {item.label}
+                <span
+                  className={`absolute left-0 right-0 -bottom-0.5 h-[2px] bg-orange transition-transform origin-left ${
+                    isActive ? "scale-x-100" : "scale-x-0"
+                  }`}
+                />
+              </a>
+            );
+          })}
         </nav>
 
         <div className={`flex items-center gap-5 ${textCls}`}>
