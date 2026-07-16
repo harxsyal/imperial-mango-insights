@@ -50,9 +50,9 @@ export const products: Product[] = [
     priceRange: "₨ 2,500 – ₨ 4,500",
     minPrice: 2500,
     shortDesc:
-      "The majestic Lal Badshah or Red King is one of the finest and rarest varieties of mangoes in Pakistan.",
+      "The Lal Badshah is one of the finest and rarest varieties of mangoes from Pakistan.",
     description:
-      "The majestic Lal Badshah or Red King is one of the finest and rarest varieties of mangoes in Pakistan. The medium sized mango is extremely flavourful and delicious and exudes an excellent aroma. Lal Badshah derives its name from the shades of red it displays, but wears different colours at different stages of its growth.",
+      "The Lal Badshah is one of the finest and rarest varieties of mangoes from Pakistan. The medium sized mango is extremely flavourful and delicious and exudes an excellent aroma. Lal Badshah derives its name from the shades of red it displays but wears different colours at different stages of its growth.",
     sizes: [
       { label: "5 Kilogram", kg: 5, price: 2500 },
       { label: "9 Kilogram", kg: 9, price: 4500 },
@@ -68,9 +68,9 @@ export const products: Product[] = [
     priceRange: "₨ 2,700 – ₨ 4,700",
     minPrice: 2700,
     shortDesc:
-      "Large, fibre-less and golden yellow with a sweet, rich flavour. Pakistan's Queen of Mangoes.",
+      "Sindhri is a leading variety of mango from the province of Sindh and is the national fruit of Pakistan.",
     description:
-      "Sindhri is one of the most popular varieties of mango in Pakistan. It is large in size with a unique lemon-yellow peel and a distinct elongated shape. The deep yellow, soft and melting flesh makes Sindhri the queen of mangoes. It is fibre-less with a very pleasant aroma and is a rich source of Vitamin C.",
+      "Sindhri is a leading variety of mango from the province of Sindh and is the national fruit of Pakistan. It is a large, oval-shaped mango with a yellowish skin, is low in fibre, and is highly aromatic. For many, Sindhri mango is the epitome of taste and texture in mangoes. While they are generally sweet, Sindhri mangoes might be a bit tangy early in the season.",
     sizes: [
       { label: "5 Kilogram", kg: 5, price: 2700 },
       { label: "9 Kilogram", kg: 9, price: 4700 },
@@ -86,9 +86,9 @@ export const products: Product[] = [
     priceRange: "₨ 3,000 – ₨ 5,000",
     minPrice: 3000,
     shortDesc:
-      "A symbol of pride for Pakistan, Anwar Ratol is one of the best mango varieties in the world.",
+      "Anwar Ratol is considered to be one of the best varieties of mango and is recognized for its rich flavour and strong aroma all around the globe.",
     description:
-      "A symbol of pride for Pakistan, Anwar Ratol is one of the best mango varieties in the world. The sweet and delicious mango is renowned for its rich flavour, strong aroma and unmatchable taste. This mini-sized powerhouse is bright yellow in colour, fully loaded with nutritional values and highly coveted amongst mango enthusiasts.",
+      "Anwar Ratol is considered to be one of the best varieties of mango and is recognized for its rich flavour and strong aroma all around the globe. Its sweetness and delicious flavour distinguish it from all the other mangoes. Small, medium-sized and bright yellow in colour this yummy mango is fully loaded with nutritional values.",
     sizes: [
       { label: "5 Kilogram", kg: 5, price: 3000 },
       { label: "9 Kilogram", kg: 9, price: 5000 },
@@ -122,9 +122,9 @@ export const products: Product[] = [
     priceRange: "₨ 2,500 – ₨ 4,300",
     minPrice: 2500,
     shortDesc:
-      "Firm, tangy-sweet with a distinctive greenish skin — a classic Punjabi favourite.",
+      "The major factor that distinguishes Langra from all the other types of mangoes is that it maintains its green colour even after it's ripe.",
     description:
-      "Langra is celebrated for its unique flavour profile — a perfect balance of sweetness and tang, with firm, fibre-less flesh. The skin retains its greenish hue even when fully ripe, making it instantly recognisable among mango lovers.",
+      "The major factor that distinguishes Langra from all the other types of mangoes is that it maintains its green colour even after it's ripe. Langra's flesh is fibreless and has a strong aroma when ripe. Although this mango is only available as a medium-sized fruit, the flavour can range from extremely sweet to a bitter sourness, depending on the ripeness of the fruit.",
     sizes: [
       { label: "5 Kilogram", kg: 5, price: 2500 },
       { label: "9 Kilogram", kg: 9, price: 4300 },
@@ -140,9 +140,9 @@ export const products: Product[] = [
     priceRange: "₨ 2,600 – ₨ 4,400",
     minPrice: 2600,
     shortDesc:
-      "Elongated, honey-sweet and aromatic — one of the most loved traditional varieties.",
+      "Mouth-watering and lip-smacking, the Dusehri mango has the juiciest pulp with an exquisite taste and delightful aroma.",
     description:
-      "Dusehri is prized for its elongated shape, smooth golden-yellow skin and exceptionally sweet, juicy flesh. Its fine fibre and rich aroma make it a household favourite across the subcontinent.",
+      "Mouth-watering and lip-smacking, the Dusehri mango has the juiciest pulp with an exquisite taste and delightful aroma. The mango is long and oval shaped, with a light green or yellow-green skin when mature, becoming golden yellow when ripe. Dasheri mangoes have a fibreless, peach-coloured flesh and are high in vitamin C.",
     sizes: [
       { label: "5 Kilogram", kg: 5, price: 2600 },
       { label: "9 Kilogram", kg: 9, price: 4400 },
@@ -158,9 +158,9 @@ export const products: Product[] = [
     priceRange: "₨ 3,200 – ₨ 5,200",
     minPrice: 3200,
     shortDesc:
-      "Deep-hued, richly aromatic Chaunsa — the crown jewel of late-season mangoes.",
+      "Chaunsa is also one of the most loved types of mangoes across the world because it is exceptionally sweet and juicy.",
     description:
-      "Black Chaunsa is renowned worldwide for its intoxicating aroma, luscious sweetness and buttery, fibre-less flesh. Its deep greenish-black skin ripens to a stunning golden bloom, revealing one of the finest eating mangoes on earth.",
+      "Chaunsa is also one of the most loved types of mangoes across the world because it is exceptionally sweet and juicy. The deliciously soft mango has a wonderful fragrance, minimum fibre, and light-yellow flesh. It doesn't get any fresher than this!",
     sizes: [
       { label: "5 Kilogram", kg: 5, price: 3200 },
       { label: "9 Kilogram", kg: 9, price: 5200 },
@@ -176,9 +176,9 @@ export const products: Product[] = [
     priceRange: "₨ 2,900 – ₨ 4,900",
     minPrice: 2900,
     shortDesc:
-      "Pale golden Chaunsa with silky flesh and a delicate, honeyed sweetness.",
+      "Chaunsa is also one of the most loved types of mangoes across the world because it is exceptionally sweet and juicy.",
     description:
-      "White Chaunsa is prized for its light golden skin and exceptionally smooth, sweet, fibre-less flesh. A more delicate cousin of the Black Chaunsa, it offers a mellow, refined flavour that mango lovers cherish.",
+      "Chaunsa is also one of the most loved types of mangoes across the world because it is exceptionally sweet and juicy. The deliciously soft mango has a wonderful fragrance, minimum fibre, and light-yellow flesh. It doesn't get any fresher than this!",
     sizes: [
       { label: "5 Kilogram", kg: 5, price: 2900 },
       { label: "9 Kilogram", kg: 9, price: 4900 },
@@ -194,9 +194,9 @@ export const products: Product[] = [
     priceRange: "₨ 2,400 – ₨ 4,200",
     minPrice: 2400,
     shortDesc:
-      "A rare regional variety with sweet, juicy flesh and a distinctive character.",
+      "One of the first mangoes to appear during the season, Saroli is a popular variety in Pakistan.",
     description:
-      "Saroli is a treasured regional variety with juicy, sweet flesh and a lovely aroma. Grown in limited quantities in our family orchard, each mango is carefully hand-picked at the perfect stage of ripeness.",
+      "One of the first mangoes to appear during the season, Saroli is a popular variety in Pakistan. The sweet green mangoes are aromatic and delicious and are a rich source of vitamins, potassium and iron.",
     sizes: [
       { label: "5 Kilogram", kg: 5, price: 2400 },
       { label: "9 Kilogram", kg: 9, price: 4200 },
