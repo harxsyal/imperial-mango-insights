@@ -1,5 +1,6 @@
 import { WHATSAPP_NUMBER, PHONE_DISPLAY } from "@/lib/products";
 import { ShoppingBag } from "lucide-react";
+import logo from "@/assets/imperial-mangoes-logo.png.asset.json";
 
 const nav = [
   { href: "#home", label: "Home" },
@@ -15,17 +16,18 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
     ? "absolute top-0 left-0 right-0 z-40 bg-transparent"
     : "bg-cream sticky top-0 z-40 border-b border-black/5";
   const textCls = overlay ? "text-white" : "text-ink";
-  const dotCls = overlay ? "text-orange" : "text-orange";
   return (
     <header className={wrap}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-6">
-        <a href="#home" className={`flex items-baseline text-[26px] tracking-tight leading-none ${textCls}`}>
-          <span className="font-normal">Imperial</span>
-          <span className={dotCls}>.</span>
-          <span className="font-normal">Mangoes</span>
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-4">
+        <a href="#home" className="flex items-center" aria-label="Imperial Mangoes">
+          <img
+            src={logo.url}
+            alt="Imperial Mangoes"
+            className={`h-14 md:h-16 w-auto ${overlay ? "" : "invert"}`}
+          />
         </a>
 
-        <nav className={`hidden md:flex items-center gap-10 text-[13px] tracking-[0.18em] uppercase font-normal ${textCls}`}>
+        <nav className={`hidden md:flex items-center gap-10 text-[13px] tracking-[0.18em] uppercase font-semibold ${textCls}`}>
           {nav.map((item) => (
             <a key={item.href} href={item.href} className="relative py-2 hover:text-orange transition">
               {item.label}
