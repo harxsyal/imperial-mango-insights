@@ -61,13 +61,13 @@ function Home() {
         </div>
       </section>
 
-      {/* Fresh Mangoes / Products */}
+      {/* Mango Varieties / Products */}
       <section className="px-6 py-24 max-w-7xl mx-auto">
         <div className="flex flex-col items-center">
           <SectionHeading
             script="Market"
-            title="Fresh Mangoes"
-            subtitle="With over seven premium varieties, harvested May through September — every mango handpicked from our family orchard."
+            title="Mango Varieties"
+            subtitle="With over seven different varieties offered, we take pride in producing some of the best mangoes in Pakistan."
           />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mt-16">
