@@ -114,22 +114,10 @@ function Home() {
 
           <div className="mt-8 md:mt-10 max-w-3xl mx-auto space-y-5 md:space-y-6 text-ink font-medium leading-relaxed md:leading-[1.7] text-base md:text-lg text-balance">
             <p>
-              Known as the <span className="font-bold text-ink">King of Fruits</span>, mangoes are a tropical treasure that originated in Pakistan and South East Asia around 5,000 years ago.
-            </p>
-            <p>
-              We bring you the finest quality mangoes, exclusively hand picked from our own family orchard.
-            </p>
-            <p>
-              With over seven different varieties offered, we take pride in producing some of the best mangoes in Pakistan.
-            </p>
-            <p>
-              Each mango is carefully hand picked with love and care, ensuring that there is no compromise on quality.
-            </p>
-            <p>
-              Our premium mangoes are rich in vitamins, minerals and antioxidants and have been associated with many health benefits and improved immunity.
+              Known as the <span className="font-bold text-ink">King of Fruits</span>, mangoes are a tropical treasure that originated in Pakistan and South East Asia around 5,000 years ago. We bring you the finest quality mangoes, exclusively hand picked from our own family orchard, and take pride in producing some of the best mangoes in Pakistan across seven distinctive varieties.
             </p>
             <p className="font-bold text-ink">
-              Our mangoes are 100% natural and mature carbide free.
+              Each mango is carefully selected with love and care, ensuring that there is no compromise on quality. Our premium mangoes are rich in vitamins, minerals and antioxidants, supporting health benefits and improved immunity — 100% natural and mature carbide free.
             </p>
           </div>
 
