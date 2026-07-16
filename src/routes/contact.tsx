@@ -23,36 +23,35 @@ function Contact() {
       <PageBanner script="Get in Touch" title="Contact" />
 
       <section className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <div className="script text-xs">Say Hello</div>
-        <h2 className="text-4xl md:text-5xl font-normal text-ink mt-3">
+        <div className="script text-3xl">Say Hello</div>
+        <h2 className="text-4xl md:text-5xl font-extralight text-ink mt-2 tracking-tight">
           Order in a message
         </h2>
-        <span className="mt-6 inline-block h-px w-16 bg-orange" aria-hidden />
-        <p className="mt-6 text-ink-soft leading-relaxed italic text-lg" style={{ fontFamily: "var(--font-sans)" }}>
+        <p className="mt-6 text-ink-soft leading-relaxed">
           The fastest way to order is on WhatsApp — we reply personally, confirm your box size, and
           arrange delivery anywhere in Pakistan.
         </p>
       </section>
 
       <section className="max-w-5xl mx-auto px-6 pb-24 grid md:grid-cols-2 gap-8">
-        <div className="bg-cream-2 p-10 text-center border border-orange/25">
-          <div className="label text-orange">WhatsApp</div>
-          <div className="text-2xl font-light text-ink mt-3" style={{ fontFamily: "var(--font-sans)" }}>{PHONE_DISPLAY}</div>
+        <div className="bg-cream-2 p-10 text-center">
+          <div className="text-[11px] tracking-[0.25em] uppercase text-ink-soft">WhatsApp</div>
+          <div className="text-2xl font-light text-ink mt-2">{PHONE_DISPLAY}</div>
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-block px-8 py-3 label text-cream bg-orange hover:bg-orange-dark transition-colors"
+            className="mt-6 inline-block px-8 py-3 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
           >
             Message Us
           </a>
         </div>
-        <div className="bg-cream-2 p-10 text-center border border-orange/25">
-          <div className="label text-orange">Phone</div>
-          <div className="text-2xl font-light text-ink mt-3" style={{ fontFamily: "var(--font-sans)" }}>{PHONE_DISPLAY}</div>
+        <div className="bg-cream-2 p-10 text-center">
+          <div className="text-[11px] tracking-[0.25em] uppercase text-ink-soft">Phone</div>
+          <div className="text-2xl font-light text-ink mt-2">{PHONE_DISPLAY}</div>
           <a
             href={`tel:${WHATSAPP_NUMBER}`}
-            className="mt-6 inline-block px-8 py-3 label text-orange border border-orange/50 hover:bg-orange/10 transition-colors"
+            className="mt-6 inline-block px-8 py-3 text-[11px] tracking-[0.25em] uppercase text-ink bg-white border border-black/10 hover:border-ink transition"
           >
             Call Now
           </a>
@@ -61,18 +60,18 @@ function Contact() {
 
       <section className="max-w-5xl mx-auto px-6 pb-24 grid md:grid-cols-3 gap-10 text-center">
         <div>
-          <div className="label text-orange mb-3">Market Hours</div>
+          <div className="text-[11px] tracking-[0.25em] uppercase text-ink-soft mb-2">Market Hours</div>
           <div className="text-ink">Mon – Fri · 10am – 9pm</div>
           <div className="text-ink">Saturday · 10am – 6pm</div>
           <div className="text-ink">Sunday · 10am – 3pm</div>
         </div>
         <div>
-          <div className="label text-orange mb-3">Location</div>
+          <div className="text-[11px] tracking-[0.25em] uppercase text-ink-soft mb-2">Location</div>
           <div className="text-ink">Mirpur Khas, Sindh</div>
           <div className="text-ink">Pakistan</div>
         </div>
         <div>
-          <div className="label text-orange mb-3">Follow</div>
+          <div className="text-[11px] tracking-[0.25em] uppercase text-ink-soft mb-2">Follow</div>
           <div className="flex justify-center gap-4">
             <a href="https://www.facebook.com/imperialmangoes" target="_blank" rel="noopener noreferrer" className="hover:text-orange">Facebook</a>
             <a href="https://www.instagram.com/imperialmangoes/" target="_blank" rel="noopener noreferrer" className="hover:text-orange">Instagram</a>

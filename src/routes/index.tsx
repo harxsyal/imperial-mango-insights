@@ -4,8 +4,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
 import { ProductCard } from "@/components/product-card";
 import { products, WHATSAPP_NUMBER } from "@/lib/products";
+import banner from "@/assets/mango-banner.jpg";
+import leaves from "@/assets/mango-leaves.png";
 import welcomeCover from "@/assets/welcome-cover.jpg.asset.json";
-import { ImperialCrown } from "@/components/imperial-logo";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -32,33 +33,31 @@ function Home() {
         <img
           src={welcomeCover.url}
           alt="Imperial Mangoes — our family orchard"
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          className="absolute inset-0 w-full h-full object-cover"
           width={1820}
           height={1200}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60" />
         <SiteHeader overlay />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-          <ImperialCrown className="w-16 h-16 mb-6" color="var(--color-orange)" />
-          <div className="script text-orange text-sm md:text-base">Est. Family Orchard</div>
-          <h1 className="mt-4 text-5xl md:text-7xl font-normal text-ink" style={{ letterSpacing: "0.14em" }}>
-            IMPERIAL <span className="text-orange">MANGOES</span>
+          <div className="script text-4xl md:text-6xl text-white/95 drop-shadow">Imperial</div>
+          <h1 className="mt-2 text-5xl md:text-7xl font-extralight tracking-tight text-white">
+            Kingdom of Mangoes
           </h1>
-          <span className="mt-6 inline-block h-px w-24 bg-orange" aria-hidden />
-          <p className="mt-6 max-w-2xl mx-auto text-ink/85 leading-relaxed italic text-lg" style={{ fontFamily: "var(--font-sans)" }}>
+          <p className="mt-6 max-w-2xl mx-auto text-white/85 leading-relaxed">
             Handpicked from our own family orchard — the finest, freshest, most flavourful
             mangoes Pakistan has to offer. 100% natural, carbide free, delivered nationwide.
           </p>
           <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
             <Link
               to="/shop"
-              className="px-10 py-4 label text-cream bg-orange hover:bg-orange-dark transition-colors"
+              className="px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
             >
               Shop Mangoes
             </Link>
             <Link
               to="/contact"
-              className="px-10 py-4 label text-ink border border-orange/60 hover:bg-orange/10 transition-colors"
+              className="px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-white/10 backdrop-blur border border-white/40 hover:bg-white/20 transition"
             >
               Contact Us
             </Link>
@@ -70,7 +69,7 @@ function Home() {
       <section className="px-6 py-24 max-w-7xl mx-auto">
         <div className="flex flex-col items-center">
           <SectionHeading
-            script="Our Orchard"
+            script="Market"
             title="Fresh Mangoes"
             subtitle="With over seven premium varieties, harvested May through September — every mango handpicked from our family orchard."
           />
@@ -83,7 +82,7 @@ function Home() {
         <div className="mt-16 text-center">
           <Link
             to="/shop"
-            className="inline-block px-10 py-4 label text-cream bg-orange hover:bg-orange-dark transition-colors"
+            className="inline-block px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
           >
             View All Varieties
           </Link>
@@ -94,27 +93,26 @@ function Home() {
       <section className="bg-cream-2 py-24 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
           <div>
-            <ImperialCrown className="w-10 h-10 mb-4" color="var(--color-orange)" />
-            <div className="script text-xs mb-3">Our Story</div>
-            <h2 className="text-3xl md:text-4xl font-normal text-ink">
-              Handpicked from our<br />family orchard
+            <img src={leaves} alt="" aria-hidden className="w-16 h-16 opacity-80" width={128} height={128} />
+            <div className="script text-3xl mt-1">Our Story</div>
+            <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-ink mt-4">
+              Handpicked from our family orchard
             </h2>
-            <span className="mt-5 inline-block h-px w-16 bg-orange" aria-hidden />
-            <p className="text-ink-soft mt-6 leading-relaxed italic text-lg" style={{ fontFamily: "var(--font-sans)" }}>
+            <p className="text-ink-soft mt-6 leading-relaxed">
               For generations, our family has tended to our orchard along the Indus with love, patience,
               and a dedication to growing the finest mangoes Pakistan has to offer. Every fruit is
               harvested at peak ripeness and packed with care — the way mangoes were meant to taste.
             </p>
             <Link
               to="/about"
-              className="mt-8 inline-block px-8 py-3 label text-cream bg-orange hover:bg-orange-dark transition-colors"
+              className="mt-8 inline-block px-8 py-3 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
             >
               Read More
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <img src={products[1].img} alt="Sindhri mango" className="w-full aspect-[3/4] object-cover border border-orange/20" width={600} height={800} loading="lazy" />
-            <img src={products[6].img} alt="Black Chaunsa mango" className="w-full aspect-[3/4] object-cover mt-10 border border-orange/20" width={600} height={800} loading="lazy" />
+            <img src={products[1].img} alt="Sindhri mango" className="w-full aspect-[3/4] object-cover" width={600} height={800} loading="lazy" />
+            <img src={products[6].img} alt="Black Chaunsa mango" className="w-full aspect-[3/4] object-cover mt-10" width={600} height={800} loading="lazy" />
           </div>
         </div>
       </section>
@@ -126,11 +124,10 @@ function Home() {
           { title: "Fresh Products", copy: "Cut this morning, packed this afternoon, on their way to you by evening." },
           { title: "Market Hours", copy: "MON – FRI · 10am – 9pm\nSATURDAY · 10am – 6pm\nSUNDAY · 10am – 3pm" },
         ].map((b) => (
-          <div key={b.title} className="border border-orange/20 p-10">
-            <ImperialCrown className="mx-auto w-10 h-10" color="var(--color-orange)" />
-            <h3 className="mt-4 text-xl font-normal text-ink">{b.title}</h3>
-            <span className="mt-4 inline-block h-px w-10 bg-orange" aria-hidden />
-            <p className="mt-4 text-ink-soft leading-relaxed whitespace-pre-line italic" style={{ fontFamily: "var(--font-sans)" }}>{b.copy}</p>
+          <div key={b.title}>
+            <img src={leaves} alt="" aria-hidden className="mx-auto w-12 h-12 opacity-80" width={96} height={96} />
+            <h3 className="mt-3 text-2xl font-light text-ink tracking-tight">{b.title}</h3>
+            <p className="mt-4 text-ink-soft leading-relaxed whitespace-pre-line">{b.copy}</p>
           </div>
         ))}
       </section>
@@ -138,13 +135,12 @@ function Home() {
       {/* Quote */}
       <section className="bg-cream-2 py-24 px-6 text-center">
         <div className="max-w-3xl mx-auto">
-          <ImperialCrown className="mx-auto w-12 h-12 mb-6" color="var(--color-orange)" />
-          <div className="script text-xs mb-6">Our Promise</div>
-          <blockquote className="text-2xl md:text-3xl font-light italic leading-relaxed text-ink" style={{ fontFamily: "var(--font-sans)" }}>
+          <div className="script text-3xl mb-4">Our Promise</div>
+          <blockquote className="text-2xl md:text-3xl font-extralight italic leading-relaxed text-ink">
             “Each mango is carefully handpicked and packed with love and care, ensuring that there is no
             compromise on quality.”
           </blockquote>
-          <div className="mt-6 label text-orange">
+          <div className="mt-6 text-xs tracking-[0.25em] uppercase text-ink-soft">
             — Imperial Mangoes Family
           </div>
         </div>
@@ -152,14 +148,14 @@ function Home() {
 
       {/* Shipping CTA */}
       <section className="py-20 px-6 text-center bg-cream">
-        <div className="script text-xs">Nationwide Delivery</div>
-        <h2 className="text-3xl md:text-4xl font-normal text-ink mt-3">Shipping All Over Pakistan</h2>
-        <p className="mt-4 text-ink-soft italic" style={{ fontFamily: "var(--font-sans)" }}>Fresh from our orchard to your doorstep.</p>
+        <div className="script text-3xl">Nationwide Delivery</div>
+        <h2 className="text-3xl md:text-4xl font-extralight text-ink mt-2">Shipping All Over Pakistan</h2>
+        <p className="mt-3 text-ink-soft">Fresh from our orchard to your doorstep.</p>
         <a
           href={`https://wa.me/${WHATSAPP_NUMBER}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 inline-block px-10 py-4 label text-cream bg-orange hover:bg-orange-dark transition-colors"
+          className="mt-8 inline-block px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
         >
           Order on WhatsApp
         </a>
