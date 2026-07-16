@@ -56,11 +56,11 @@ function ProductPage() {
       </div>
 
       <section className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-16">
-        <div className="relative overflow-hidden aspect-square bg-cream-2">
+        <div className="relative overflow-hidden aspect-square bg-black border border-orange/20">
           {product.tag && (
             <span
-              className={`absolute top-4 left-4 z-10 text-[10px] tracking-[0.2em] px-3 py-1 text-white uppercase ${
-                product.tag === "Best Seller" ? "bg-pink" : "bg-orange"
+              className={`absolute top-4 left-4 z-10 text-[10px] tracking-[0.25em] px-3 py-1 uppercase ${
+                product.tag === "Best Seller" ? "bg-orange text-cream" : "bg-pink text-ink"
               }`}
             >
               {product.tag}
@@ -70,24 +70,25 @@ function ProductPage() {
         </div>
 
         <div>
-          <h1 className="text-4xl md:text-5xl font-extralight tracking-tight text-ink">{product.name}</h1>
-          <div className="mt-4 text-2xl text-ink-soft font-light">{product.priceRange}</div>
-          <div className="text-[11px] tracking-[0.25em] uppercase text-ink-soft mt-3">
+          <h1 className="text-4xl md:text-5xl font-normal text-ink">{product.name}</h1>
+          <span className="mt-5 inline-block h-px w-16 bg-orange" aria-hidden />
+          <div className="mt-5 text-2xl text-orange font-light" style={{ fontFamily: "var(--font-sans)" }}>{product.priceRange}</div>
+          <div className="label text-ink-soft mt-3">
             SKU: {product.sku} · Season: {product.season}
           </div>
-          <p className="mt-8 text-ink-soft leading-relaxed">{product.description}</p>
+          <p className="mt-8 text-ink-soft leading-relaxed italic text-lg" style={{ fontFamily: "var(--font-sans)" }}>{product.description}</p>
 
           <div className="mt-10">
-            <div className="text-[11px] tracking-[0.25em] uppercase text-ink mb-3">Kilogram</div>
+            <div className="label text-orange mb-3">Kilogram</div>
             <div className="flex gap-2">
               {product.sizes.map((s: Size, i: number) => (
                 <button
                   key={s.label}
                   onClick={() => setSizeIdx(i)}
-                  className={`px-5 py-3 text-[11px] tracking-[0.2em] uppercase transition ${
+                  className={`px-5 py-3 label transition-colors ${
                     i === sizeIdx
-                      ? "bg-ink text-white border border-ink"
-                      : "bg-white text-ink border border-black/10 hover:border-ink"
+                      ? "bg-orange text-cream border border-orange"
+                      : "bg-transparent text-ink border border-orange/40 hover:border-orange"
                   }`}
                 >
                   {s.label}
@@ -97,13 +98,13 @@ function ProductPage() {
           </div>
 
           <div className="mt-6 flex items-center gap-4">
-            <div className="flex items-center border border-black/15 bg-white">
+            <div className="flex items-center border border-orange/40 text-ink">
               <button onClick={() => setQty((q) => Math.max(1, q - 1))} className="px-3 py-2 hover:text-orange" aria-label="Decrease">−</button>
               <span className="px-4 min-w-10 text-center">{qty}</span>
               <button onClick={() => setQty((q) => q + 1)} className="px-3 py-2 hover:text-orange" aria-label="Increase">+</button>
             </div>
             <div className="text-ink-soft">
-              Total: <span className="text-ink text-lg">₨ {(size.price * qty).toLocaleString()}</span>
+              Total: <span className="text-orange text-lg" style={{ fontFamily: "var(--font-sans)" }}>₨ {(size.price * qty).toLocaleString()}</span>
             </div>
           </div>
 
@@ -117,14 +118,14 @@ function ProductPage() {
             })}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center justify-center w-full py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
+            className="mt-8 inline-flex items-center justify-center w-full py-4 label text-cream bg-orange hover:bg-orange-dark transition-colors"
           >
             Buy via WhatsApp
           </a>
 
-          <div className="mt-12 border-t border-black/10 pt-8">
-            <div className="text-[11px] tracking-[0.25em] uppercase text-ink mb-3">Product Details</div>
-            <ul className="text-ink-soft space-y-1 list-disc pl-5">
+          <div className="mt-12 border-t border-orange/25 pt-8">
+            <div className="label text-orange mb-3">Product Details</div>
+            <ul className="text-ink-soft space-y-1 list-disc pl-5" style={{ fontFamily: "var(--font-sans)" }}>
               <li>100% Carbide Free</li>
               <li>100% Natural</li>
               <li>Rich in Vitamin A, C, iron, folate and magnesium</li>
@@ -138,8 +139,9 @@ function ProductPage() {
       <section className="bg-cream-2 py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <div className="script text-3xl">Also from the orchard</div>
-            <h2 className="text-3xl md:text-4xl font-extralight text-ink mt-2">Related Varieties</h2>
+            <div className="script text-xs">Also from the orchard</div>
+            <h2 className="text-3xl md:text-4xl font-normal text-ink mt-3">Related Varieties</h2>
+            <span className="mt-5 inline-block h-px w-16 bg-orange" aria-hidden />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
             {related.map((p) => (
