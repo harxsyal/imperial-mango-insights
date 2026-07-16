@@ -61,6 +61,7 @@ function Home() {
 
   return (
     <div className="bg-cream min-h-screen">
+      <SiteHeader overlay />
       {/* HERO */}
       <section id="home" className="relative w-full h-[92vh] min-h-[600px] overflow-hidden">
         <img
@@ -73,7 +74,6 @@ function Home() {
           decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60" />
-        <SiteHeader overlay />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <p className="mt-6 max-w-2xl mx-auto text-white text-lg font-medium leading-relaxed drop-shadow">
             Handpicked from our own family orchard — the finest, freshest, most flavourful
@@ -116,7 +116,7 @@ function Home() {
               With over seven different varieties offered, we take pride in producing some of the best mangoes in Pakistan.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 mt-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10 mt-10 justify-items-center">
             {products.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}

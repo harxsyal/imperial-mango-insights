@@ -2,6 +2,7 @@ import { WHATSAPP_NUMBER, PHONE_DISPLAY } from "@/lib/products";
 import { ShoppingBag } from "lucide-react";
 import logo from "@/assets/imperial-mangoes-logo.png.asset.json";
 import { useActiveSection } from "@/hooks/use-active-section";
+import { useEffect, useState } from "react";
 
 const nav = [
   { href: "#home", label: "Home" },
@@ -14,18 +15,28 @@ const nav = [
 
 export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const active = useActiveSection(nav.map((n) => n.href.replace("#", "")));
-  const wrap = overlay
-    ? "absolute top-0 left-0 right-0 z-40 bg-transparent"
-    : "bg-cream sticky top-0 z-40 border-b border-black/5";
-  const textCls = overlay ? "text-white" : "text-ink";
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    if (!overlay) return;
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [overlay]);
+
+  const solid = !overlay || scrolled;
+  const wrap = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    solid ? "bg-cream/95 backdrop-blur border-b border-black/5 shadow-sm" : "bg-transparent"
+  }`;
+  const textCls = solid ? "text-ink" : "text-white";
   return (
     <header className={wrap}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-3">
         <a href="#home" className="flex items-center" aria-label="Imperial Mangoes">
           <img
             src={logo.url}
             alt="Imperial Mangoes"
-            className={`h-14 md:h-16 w-auto ${overlay ? "" : "invert"}`}
+            className={`h-12 md:h-14 w-auto transition ${solid ? "invert" : ""}`}
           />
         </a>
 
