@@ -40,10 +40,6 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60" />
         <SiteHeader overlay />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-          <div className="script text-4xl md:text-6xl text-white/95 drop-shadow">Imperial</div>
-          <h1 className="mt-2 text-5xl md:text-7xl font-extralight tracking-tight text-white">
-            Kingdom of Mangoes
-          </h1>
           <p className="mt-6 max-w-2xl mx-auto text-white/85 leading-relaxed">
             Handpicked from our own family orchard — the finest, freshest, most flavourful
             mangoes Pakistan has to offer. 100% natural, carbide free, delivered nationwide.
