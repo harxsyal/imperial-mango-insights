@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/product-card";
 import { products, WHATSAPP_NUMBER } from "@/lib/products";
 import banner from "@/assets/mango-banner.jpg";
 import leaves from "@/assets/mango-leaves.png";
+import welcomeCover from "@/assets/welcome-cover.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -30,38 +31,35 @@ function Home() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="pt-16 pb-8 text-center px-6">
-        <img src={leaves} alt="" aria-hidden className="mx-auto w-24 h-24 opacity-80" width={200} height={200} />
-        <div className="script text-4xl md:text-5xl -mt-2">Market</div>
-        <h1 className="mt-6 text-5xl md:text-7xl font-extralight tracking-tight text-ink">
-          Fresh &amp; Organic Mangoes
-        </h1>
-        <p className="mt-8 max-w-2xl mx-auto text-ink-soft leading-relaxed">
-          Handpicked from our own family orchard, we bring you the finest, freshest, and most flavourful
-          mangoes Pakistan has to offer — 100% natural, carbide free, and delivered nationwide.
-        </p>
-        <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
-          <Link
-            to="/shop"
-            className="px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
-          >
-            Read More
-          </Link>
-          <Link
-            to="/contact"
-            className="px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-ink bg-white border border-black/10 hover:border-ink transition"
-          >
-            Contact Us
-          </Link>
-        </div>
-
+      <section className="relative w-full">
         <img
-          src={banner}
-          alt="Fresh Pakistani mangoes"
-          className="mt-16 w-full max-w-6xl mx-auto"
-          width={1920}
-          height={700}
+          src={welcomeCover.url}
+          alt="Imperial Mangoes — our family orchard"
+          className="w-full h-[70vh] min-h-[420px] md:h-[85vh] object-cover"
+          width={1820}
+          height={1200}
         />
+        <div className="text-center px-6 pt-14 pb-4">
+          <div className="script text-4xl md:text-5xl">Market</div>
+          <p className="mt-6 max-w-2xl mx-auto text-ink-soft leading-relaxed">
+            Handpicked from our own family orchard, we bring you the finest, freshest, and most flavourful
+            mangoes Pakistan has to offer — 100% natural, carbide free, and delivered nationwide.
+          </p>
+          <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
+            <Link
+              to="/shop"
+              className="px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-white bg-orange hover:bg-orange-dark transition"
+            >
+              Shop Mangoes
+            </Link>
+            <Link
+              to="/contact"
+              className="px-10 py-4 text-[11px] tracking-[0.25em] uppercase text-ink bg-white border border-black/10 hover:border-ink transition"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Fresh Mangoes / Products */}
