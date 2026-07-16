@@ -1,5 +1,3 @@
-import leaves from "@/assets/mango-leaves.png";
-
 export function SectionHeading({
   script,
   title,
@@ -14,9 +12,8 @@ export function SectionHeading({
   const alignCls = align === "center" ? "text-center items-center" : "text-left items-start";
   return (
     <div className={`flex flex-col ${alignCls}`}>
-      <img src={leaves} alt="" aria-hidden className="w-16 h-16 opacity-80" width={128} height={128} />
       {script && (
-        <div className="script text-3xl md:text-4xl -mt-2 mb-3">{script}</div>
+        <div className="script text-3xl md:text-4xl mb-3">{script}</div>
       )}
       <h2 className="text-4xl md:text-5xl font-extralight text-ink tracking-tight">
         {title}
