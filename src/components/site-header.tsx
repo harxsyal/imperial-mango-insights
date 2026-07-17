@@ -75,7 +75,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const wrap = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
     solid ? "bg-cream/95 backdrop-blur border-b border-black/5 shadow-sm" : "bg-transparent"
   }`;
-  const textCls = solid ? "text-ink" : "text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]";
+  const textCls = "text-black [text-shadow:0_1px_2px_rgba(255,255,255,0.45)]";
   const moreActive = moreNav.some((m) => active === m.href.replace("#", ""));
 
   return (
