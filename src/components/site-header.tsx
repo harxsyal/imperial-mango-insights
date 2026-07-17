@@ -23,7 +23,10 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement | null>(null);
+  const moreBtnRef = useRef<HTMLButtonElement | null>(null);
+  const moreMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!overlay) return;
@@ -34,12 +37,34 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   }, [overlay]);
 
   useEffect(() => {
-    const onClick = (e: MouseEvent) => {
+    const onPointer = (e: PointerEvent) => {
       if (moreRef.current && !moreRef.current.contains(e.target as Node)) setMoreOpen(false);
     };
-    document.addEventListener("mousedown", onClick);
-    return () => document.removeEventListener("mousedown", onClick);
-  }, []);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (moreOpen) { setMoreOpen(false); moreBtnRef.current?.focus(); }
+        if (mobileOpen) setMobileOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [moreOpen, mobileOpen]);
+
+  const onMoreKeyDown = (e: React.KeyboardEvent) => {
+    if (!moreOpen) return;
+    const items = moreMenuRef.current?.querySelectorAll<HTMLAnchorElement>("a[href]");
+    if (!items || items.length === 0) return;
+    const arr = Array.from(items);
+    const idx = arr.indexOf(document.activeElement as HTMLAnchorElement);
+    if (e.key === "ArrowDown") { e.preventDefault(); arr[(idx + 1 + arr.length) % arr.length].focus(); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); arr[(idx - 1 + arr.length) % arr.length].focus(); }
+    else if (e.key === "Home") { e.preventDefault(); arr[0].focus(); }
+    else if (e.key === "End") { e.preventDefault(); arr[arr.length - 1].focus(); }
+  };
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -50,7 +75,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const wrap = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
     solid ? "bg-cream/95 backdrop-blur border-b border-black/5 shadow-sm" : "bg-transparent"
   }`;
-  const textCls = solid ? "text-ink" : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]";
+  const textCls = solid ? "text-ink" : "text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]";
   const moreActive = moreNav.some((m) => active === m.href.replace("#", ""));
 
   return (
@@ -86,7 +111,15 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
 
             <div ref={moreRef} className="relative">
               <button
+                ref={moreBtnRef}
                 onClick={() => setMoreOpen((v) => !v)}
+                onKeyDown={(e) => {
+                  if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setMoreOpen(true);
+                    requestAnimationFrame(() => moreMenuRef.current?.querySelector<HTMLAnchorElement>("a[href]")?.focus());
+                  }
+                }}
                 className={`relative py-2 flex items-center gap-1 transition rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-transparent ${moreActive || moreOpen ? "text-orange" : "hover:text-orange"}`}
                 aria-haspopup="menu"
                 aria-expanded={moreOpen}
@@ -100,6 +133,9 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
                 />
               </button>
               <div
+                ref={moreMenuRef}
+                role="menu"
+                onKeyDown={onMoreKeyDown}
                 className={`absolute right-0 top-full mt-2 min-w-[180px] bg-cream border border-black/5 shadow-lg py-2 transition-all duration-200 origin-top ${
                   moreOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-95 pointer-events-none"
                 }`}
@@ -110,6 +146,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
                     <a
                       key={item.href}
                       href={item.href}
+                      role="menuitem"
                       onClick={() => setMoreOpen(false)}
                       className={`block px-5 py-2.5 text-[12px] tracking-[0.18em] uppercase font-bold transition focus:outline-none focus-visible:bg-cream-2 focus-visible:text-orange ${
                         isActive ? "text-orange bg-cream-2" : "text-ink hover:text-orange hover:bg-cream-2"
@@ -168,7 +205,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
             </button>
           </div>
           <nav className="flex flex-col p-2">
-            {allNav.map((item) => {
+            {primaryNav.map((item) => {
               const isActive = active === item.href.replace("#", "");
               return (
                 <a
@@ -183,6 +220,37 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
                 </a>
               );
             })}
+            <button
+              onClick={() => setMobileMoreOpen((v) => !v)}
+              aria-expanded={mobileMoreOpen}
+              aria-controls="mobile-more-panel"
+              className={`flex items-center justify-between px-5 py-4 text-[13px] tracking-[0.2em] uppercase font-bold border-b border-black/5 transition focus:outline-none focus-visible:bg-cream-2 focus-visible:text-orange ${
+                moreActive ? "text-orange" : "text-ink hover:text-orange"
+              }`}
+            >
+              MORE
+              <ChevronDown size={16} className={`transition-transform ${mobileMoreOpen ? "rotate-180" : ""}`} />
+            </button>
+            <div
+              id="mobile-more-panel"
+              className={`overflow-hidden transition-[max-height] duration-300 ease-out ${mobileMoreOpen ? "max-h-96" : "max-h-0"}`}
+            >
+              {moreNav.map((item) => {
+                const isActive = active === item.href.replace("#", "");
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => { setMobileMoreOpen(false); setMobileOpen(false); }}
+                    className={`block pl-9 pr-5 py-3.5 text-[12px] tracking-[0.2em] uppercase font-bold border-b border-black/5 bg-cream-2/50 transition focus:outline-none focus-visible:bg-cream-2 focus-visible:text-orange ${
+                      isActive ? "text-orange" : "text-ink hover:text-orange"
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </div>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
