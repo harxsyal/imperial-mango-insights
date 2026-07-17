@@ -77,12 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Imperial Mangoes — Finest Sindhri & Chaunsa from Pakistan" },
-      { name: "description", content: "Hand-picked, carbide-free Pakistani mangoes shipped from our family orchards. Order Sindhri, Chaunsa, Anwar Ratol and Langra." },
-      { property: "og:title", content: "Imperial Mangoes — Kingdom of Pakistan" },
-      { property: "og:description", content: "Hand-picked, carbide-free Pakistani mangoes from our family orchards." },
+      { title: "Imperial Mangoes — Fresh & Organic Pakistani Mangoes" },
+      { name: "description", content: "Handpicked from our family orchard — the finest Pakistani mangoes. 100% natural, carbide free, shipped nationwide." },
+      { property: "og:title", content: "Imperial Mangoes — Fresh & Organic Pakistani Mangoes" },
+      { property: "og:description", content: "Handpicked from our family orchard — the finest Pakistani mangoes. 100% natural, carbide free, shipped nationwide." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Imperial Mangoes — Fresh & Organic Pakistani Mangoes" },
+      { name: "twitter:description", content: "Handpicked from our family orchard — the finest Pakistani mangoes. 100% natural, carbide free, shipped nationwide." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a027186d-a44e-470f-a776-fc4456b4bfd0/id-preview-43f40025--bf7a7a1e-9284-4a28-82b3-fd5c16c8b439.lovable.app-1784253857677.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a027186d-a44e-470f-a776-fc4456b4bfd0/id-preview-43f40025--bf7a7a1e-9284-4a28-82b3-fd5c16c8b439.lovable.app-1784253857677.png" },
     ],
     links: [
       {

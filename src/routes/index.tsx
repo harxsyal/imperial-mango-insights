@@ -21,8 +21,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Imperial Mangoes — Fresh & Organic Pakistani Mangoes" },
       { name: "description", content: "Handpicked from our family orchard — the finest Pakistani mangoes. 100% natural, carbide free, shipped nationwide." },
-      { property: "og:title", content: "Imperial Mangoes — Kingdom of Pakistan" },
-      { property: "og:description", content: "Handpicked, carbide-free Pakistani mangoes shipped nationwide." },
+      { property: "og:title", content: "Imperial Mangoes — Fresh & Organic Pakistani Mangoes" },
+      { property: "og:description", content: "Handpicked from our family orchard — the finest Pakistani mangoes. 100% natural, carbide free, shipped nationwide." },
       { property: "og:image", content: welcomeCover },
     ],
   }),
