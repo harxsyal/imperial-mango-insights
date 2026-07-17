@@ -5,15 +5,15 @@ import { useActiveSection } from "@/hooks/use-active-section";
 import { useEffect, useRef, useState } from "react";
 
 const primaryNav = [
-  { href: "#home", label: "Home" },
-  { href: "#varieties", label: "Varieties" },
-  { href: "#story", label: "Story" },
+  { href: "#home", label: "HOME" },
+  { href: "#varieties", label: "VARIETIES" },
+  { href: "#story", label: "STORY" },
 ] as const;
 
 const moreNav = [
-  { href: "#benefits", label: "Benefits" },
-  { href: "#nutrition", label: "Nutrition" },
-  { href: "#contact", label: "Contact" },
+  { href: "#benefits", label: "BENEFITS" },
+  { href: "#nutrition", label: "NUTRITION" },
+  { href: "#contact", label: "CONTACT" },
 ] as const;
 
 const allNav = [...primaryNav, ...moreNav];
@@ -50,14 +50,14 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const wrap = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
     solid ? "bg-cream/95 backdrop-blur border-b border-black/5 shadow-sm" : "bg-transparent"
   }`;
-  const textCls = solid ? "text-ink" : "text-white";
+  const textCls = solid ? "text-ink" : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]";
   const moreActive = moreNav.some((m) => active === m.href.replace("#", ""));
 
   return (
     <>
       <header className={wrap}>
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-3">
-          <a href="#home" className="flex items-center shrink-0" aria-label="Imperial Mangoes">
+        <div className="max-w-7xl mx-auto grid grid-cols-[auto_1fr_auto] items-center gap-4 px-6 md:px-12 py-3">
+          <a href="#home" className="flex items-center shrink-0 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cream" aria-label="Imperial Mangoes">
             <img
               src={logo.url}
               alt="Imperial Mangoes"
@@ -65,19 +65,19 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
             />
           </a>
 
-          <nav className={`hidden md:flex items-center gap-10 text-[13px] tracking-[0.18em] uppercase font-bold ${textCls}`}>
+          <nav className={`hidden md:flex items-center justify-center gap-10 text-[13px] tracking-[0.18em] uppercase font-bold ${textCls}`}>
             {primaryNav.map((item) => {
               const isActive = active === item.href.replace("#", "");
               return (
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`relative py-2 transition ${isActive ? "text-orange" : "hover:text-orange"}`}
+                  className={`relative py-2 transition rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-transparent ${isActive ? "text-orange" : "hover:text-orange"}`}
                 >
                   {item.label}
                   <span
                     className={`absolute left-0 right-0 -bottom-0.5 h-[2px] bg-orange transition-transform origin-left ${
-                      isActive ? "scale-x-100" : "scale-x-0"
+                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
                 </a>
@@ -87,7 +87,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
             <div ref={moreRef} className="relative">
               <button
                 onClick={() => setMoreOpen((v) => !v)}
-                className={`relative py-2 flex items-center gap-1 transition ${moreActive || moreOpen ? "text-orange" : "hover:text-orange"}`}
+                className={`relative py-2 flex items-center gap-1 transition rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-transparent ${moreActive || moreOpen ? "text-orange" : "hover:text-orange"}`}
                 aria-haspopup="menu"
                 aria-expanded={moreOpen}
               >
@@ -111,7 +111,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
                       key={item.href}
                       href={item.href}
                       onClick={() => setMoreOpen(false)}
-                      className={`block px-5 py-2.5 text-[12px] tracking-[0.18em] uppercase font-bold transition ${
+                      className={`block px-5 py-2.5 text-[12px] tracking-[0.18em] uppercase font-bold transition focus:outline-none focus-visible:bg-cream-2 focus-visible:text-orange ${
                         isActive ? "text-orange bg-cream-2" : "text-ink hover:text-orange hover:bg-cream-2"
                       }`}
                     >
@@ -123,13 +123,13 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
             </div>
           </nav>
 
-          <div className={`flex items-center gap-4 ${textCls}`}>
+          <div className={`flex items-center justify-end gap-4 ${textCls}`}>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`WhatsApp ${PHONE_DISPLAY}`}
-              className="relative"
+              className="relative rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 hover:text-orange transition"
             >
               <ShoppingBag size={20} strokeWidth={1.5} />
               <span className="absolute -top-2 -right-2 text-[10px] w-4 h-4 rounded-full flex items-center justify-center text-white bg-pink">
@@ -137,7 +137,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
               </span>
             </a>
             <button
-              className="md:hidden"
+              className="md:hidden rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 hover:text-orange transition"
               aria-label="Open menu"
               onClick={() => setMobileOpen(true)}
             >
@@ -175,7 +175,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`px-5 py-4 text-[13px] tracking-[0.2em] uppercase font-bold border-b border-black/5 transition ${
+                  className={`px-5 py-4 text-[13px] tracking-[0.2em] uppercase font-bold border-b border-black/5 transition focus:outline-none focus-visible:bg-cream-2 focus-visible:text-orange ${
                     isActive ? "text-orange" : "text-ink hover:text-orange"
                   }`}
                 >
