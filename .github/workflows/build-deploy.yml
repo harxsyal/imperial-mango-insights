@@ -6,7 +6,8 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: build-deploy-${{ github.ref }}
+  # Deduplicate runs for the same commit, even if it is pushed to both branches.
+  group: build-deploy-${{ github.sha }}
   cancel-in-progress: true
 
 jobs:
@@ -22,7 +23,17 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: 1.2.5
+
+      - name: Cache Bun dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.bun/install/cache
+            node_modules
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lockb', 'package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
 
       - name: Install dependencies
         run: bun install --frozen-lockfile || bun install
@@ -58,7 +69,10 @@ jobs:
           git init -q
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -q -b deploy
+
+          # Create an orphan branch so no history/files from previous builds can linger
+          git checkout -q --orphan deploy
+          git rm -rf --quiet .
 
           git add -A
           git commit -q -m "Deploy build from ${SRC_REF}@${SRC_COMMIT}"
