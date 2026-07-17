@@ -1,4 +1,4 @@
-import banner from "@/assets/about-section.jpg.asset.json";
+import banner from "@/assets/about-section.jpg";
 
 export function PageBanner({ title, script }: { title: string; script?: string }) {
   return (

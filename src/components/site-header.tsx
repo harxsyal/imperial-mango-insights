@@ -1,6 +1,6 @@
 import { WHATSAPP_NUMBER, PHONE_DISPLAY } from "@/lib/products";
 import { ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
-import logo from "@/assets/imperial-mangoes-logo.png.asset.json";
+import logo from "@/assets/imperial-mangoes-logo.png";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { useEffect, useRef, useState } from "react";
 

@@ -8,12 +8,12 @@ import { ScrollToTop } from "@/components/scroll-to-top";
 import { ContactForm } from "@/components/contact-form";
 import { useInView } from "@/hooks/use-in-view";
 import { products, WHATSAPP_NUMBER } from "@/lib/products";
-import welcomeCover from "@/assets/welcome-cover.jpg.asset.json";
-import varietiesMix from "@/assets/varieties-mix.png.asset.json";
-import mangoCrate from "@/assets/mango-crate.jpg.asset.json";
-import aboutSection from "@/assets/about-section.jpg.asset.json";
-import aboutTree from "@/assets/about-tree.jpg.asset.json";
-import mangoHanging from "@/assets/mango-hanging.jpg.asset.json";
+import welcomeCover from "@/assets/welcome-cover.jpg";
+import varietiesMix from "@/assets/varieties-mix.png";
+import mangoCrate from "@/assets/mango-crate.jpg";
+import aboutSection from "@/assets/about-section.jpg";
+import aboutTree from "@/assets/about-tree.jpg";
+import mangoHanging from "@/assets/mango-hanging.jpg";
 
 export const Route = createFileRoute("/")({
   component: Home,

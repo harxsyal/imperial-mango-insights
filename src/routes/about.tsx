@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PageBanner } from "@/components/page-banner";
 import { WHATSAPP_NUMBER } from "@/lib/products";
-import aboutTree from "@/assets/about-tree.jpg.asset.json";
+import aboutTree from "@/assets/about-tree.jpg";
 
 export const Route = createFileRoute("/about")({
   component: About,

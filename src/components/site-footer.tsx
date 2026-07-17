@@ -1,5 +1,5 @@
 import { WHATSAPP_NUMBER, PHONE_DISPLAY } from "@/lib/products";
-import logo from "@/assets/imperial-mangoes-logo.png.asset.json";
+import logo from "@/assets/imperial-mangoes-logo.png";
 import { Facebook, Instagram, Phone, MessageCircle, MapPin } from "lucide-react";
 
 export function SiteFooter() {
