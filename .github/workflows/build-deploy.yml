@@ -43,11 +43,13 @@ jobs:
 
       - name: Verify build output
         run: |
-          if [ ! -d "dist" ]; then
-            echo "dist directory not found after build"
+          if [ ! -d "dist/client" ]; then
+            echo "dist/client directory not found after build"
+            echo "--- dist tree ---"
+            ls -laR dist 2>/dev/null || echo "(no dist)"
             exit 1
           fi
-          ls -la dist
+          ls -la dist/client
 
       - name: Publish dist/ to deploy branch
         env:
@@ -59,7 +61,7 @@ jobs:
 
           # Copy build output outside the repo working tree
           DEPLOY_DIR="$(mktemp -d)"
-          cp -R dist/. "$DEPLOY_DIR"/
+          cp -R dist/client/. "$DEPLOY_DIR"/
 
           # Preserve a .gitignore-less clean tree; add .nojekyll just in case
           touch "$DEPLOY_DIR/.nojekyll"
