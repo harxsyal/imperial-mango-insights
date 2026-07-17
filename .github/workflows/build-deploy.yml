@@ -6,8 +6,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  # Deduplicate runs for the same commit, even if it is pushed to both branches.
-  group: build-deploy-${{ github.sha }}
+  group: build-deploy
   cancel-in-progress: true
 
 jobs:
@@ -15,73 +14,46 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      actions: read
 
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version: "1.1.38"
+          bun-version: "1.2.5"
 
       - name: Cache Bun dependencies
         uses: actions/cache@v4
         with:
           path: |
             ~/.bun/install/cache
-            node_modules
-          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock', 'bun.lockb', 'package.json') }}
+          key: ${{ runner.os }}-bun-1.2.5-${{ hashFiles('bun.lock') }}
           restore-keys: |
-            ${{ runner.os }}-bun-
+            ${{ runner.os }}-bun-1.2.5-
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile || bun install
+        run: bun install --frozen-lockfile
 
       - name: Build project
         run: bun run build
 
       - name: Verify build output
         run: |
-          if [ ! -d "dist/client" ]; then
-            echo "dist/client directory not found after build"
+          if [ ! -f "dist/client/index.html" ]; then
+            echo "dist/client/index.html was not generated"
             echo "--- dist tree ---"
-            ls -laR dist 2>/dev/null || echo "(no dist)"
+            find dist -maxdepth 3 -type f -print 2>/dev/null || true
             exit 1
           fi
-          ls -la dist/client
 
-      - name: Publish dist/ to deploy branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SRC_COMMIT: ${{ github.sha }}
-          SRC_REF: ${{ github.ref_name }}
-        run: |
-          set -euo pipefail
-
-          # Copy build output outside the repo working tree
-          DEPLOY_DIR="$(mktemp -d)"
-          cp -R dist/client/. "$DEPLOY_DIR"/
-
-          # Preserve a .gitignore-less clean tree; add .nojekyll just in case
-          touch "$DEPLOY_DIR/.nojekyll"
-
-          cd "$DEPLOY_DIR"
-
-          git init -q
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          # Create an orphan branch so no history/files from previous builds can linger
-          git checkout -q --orphan deploy
-          git rm -rf --quiet .
-
-          git add -A
-          git commit -q -m "Deploy build from ${SRC_REF}@${SRC_COMMIT}"
-
-          REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          # Force-push so the deploy branch always contains only the latest build
-          git push -f "$REMOTE" deploy:deploy
+      - name: Publish clean build to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: deploy
+          publish_dir: ./dist/client
+          force_orphan: true
+          keep_files: false
+          enable_jekyll: false
