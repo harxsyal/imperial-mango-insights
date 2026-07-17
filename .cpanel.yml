@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/imperialmangoes/public_html/app
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R dist/* $DEPLOYPATH/
