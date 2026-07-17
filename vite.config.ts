@@ -7,11 +7,5 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  tanstackStart: {
-    // Emit an index.html SPA shell for Apache/cPanel static hosting.
-    spa: {
-      enabled: true,
-      prerender: { outputPath: "/index.html" },
-    },
-  },
+  tanstackStart: {},
 });
