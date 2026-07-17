@@ -1,0 +1,68 @@
+name: Build and Deploy to cPanel branch
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: build-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile || bun install
+
+      - name: Build project
+        run: bun run build
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "dist directory not found after build"
+            exit 1
+          fi
+          ls -la dist
+
+      - name: Publish dist/ to deploy branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SRC_COMMIT: ${{ github.sha }}
+          SRC_REF: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          # Copy build output outside the repo working tree
+          DEPLOY_DIR="$(mktemp -d)"
+          cp -R dist/. "$DEPLOY_DIR"/
+
+          # Preserve a .gitignore-less clean tree; add .nojekyll just in case
+          touch "$DEPLOY_DIR/.nojekyll"
+
+          cd "$DEPLOY_DIR"
+
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q -b deploy
+
+          git add -A
+          git commit -q -m "Deploy build from ${SRC_REF}@${SRC_COMMIT}"
+
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          # Force-push so the deploy branch always contains only the latest build
+          git push -f "$REMOTE" deploy:deploy
