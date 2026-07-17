@@ -1,4 +1,4 @@
-import banner from "@/assets/about-section.jpg.asset.json";
+import banner from "@/assets/about-section.jpg";
 
 export function PageBanner({ title, script }: { title: string; script?: string }) {
   return (
@@ -6,7 +6,7 @@ export function PageBanner({ title, script }: { title: string; script?: string }
       className="relative w-full h-[38vh] md:h-[46vh] min-h-[260px] flex flex-col items-center justify-center text-center overflow-hidden bg-cream-2"
     >
       <img
-        src={banner.url}
+        src={banner}
         alt=""
         aria-hidden
         className="absolute inset-0 w-full h-full object-cover"
