@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Handpicked from our family orchard — the finest Pakistani mangoes. 100% natural, carbide free, shipped nationwide." },
       { property: "og:title", content: "Imperial Mangoes — Kingdom of Pakistan" },
       { property: "og:description", content: "Handpicked, carbide-free Pakistani mangoes shipped nationwide." },
-      { property: "og:image", content: welcomeCover.url },
+      { property: "og:image", content: welcomeCover },
     ],
   }),
 });
@@ -71,7 +71,7 @@ function Home() {
       <section id="home" className="relative w-full pt-[72px] md:pt-[92px]">
         <div className="relative w-full aspect-[16/9] min-h-[420px] md:min-h-[520px] overflow-hidden">
           <img
-            src={welcomeCover.url}
+            src={welcomeCover}
             alt="Imperial Mangoes orchard at golden hour"
             className="absolute inset-0 w-full h-full object-cover"
             width={1920}
@@ -241,7 +241,7 @@ function Home() {
 
           <div className="mt-8 md:mt-10">
             <img
-              src={varietiesMix.url}
+              src={varietiesMix}
               alt="Assorted mango varieties"
               className="w-full max-h-48 md:max-h-64 object-cover"
               loading="lazy"
@@ -256,7 +256,7 @@ function Home() {
       {/* CONTACT / CTA */}
       <section id="contact" className="relative py-12 md:py-16 px-5 md:px-6 overflow-hidden">
         <img
-          src={mangoCrate.url}
+          src={mangoCrate}
           alt=""
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover"

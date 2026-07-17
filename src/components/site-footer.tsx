@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="bg-black px-5 md:px-12 pt-12 md:pt-16 pb-6 md:pb-8 text-sm text-white/70">
       <div className="max-w-7xl mx-auto grid gap-8 md:gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <img src={logo.url} alt="Imperial Mangoes" className="h-12 md:h-16 w-auto" />
+          <img src={logo} alt="Imperial Mangoes" className="h-12 md:h-16 w-auto" />
           <p className="mt-4 md:mt-5 max-w-xs leading-relaxed">
             <span className="text-orange font-semibold">King of Fruits · Kingdom of Pakistan.</span><br />
             Handpicked from our family orchard — 100% natural, carbide free, delivered fresh across Pakistan.

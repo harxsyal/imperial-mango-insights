@@ -9,16 +9,16 @@ import whiteChaunsaA from "@/assets/products/white_chaunsa.png";
 import saroliA from "@/assets/products/saroli.png";
 import totaPuriA from "@/assets/products/Tota_puri.png";
 
-const lalBadshah = lalBadshahA.url;
-const sindhri = sindhriA.url;
-const anwarRatol = anwarRatolA.url;
-const gulabKhas = gulabKhasA.url;
-const langra = langraA.url;
-const dusehri = dusehriA.url;
-const blackChaunsa = blackChaunsaA.url;
-const whiteChaunsa = whiteChaunsaA.url;
-const saroli = saroliA.url;
-const totaPuri = totaPuriA.url;
+const lalBadshah = lalBadshahA;
+const sindhri = sindhriA;
+const anwarRatol = anwarRatolA;
+const gulabKhas = gulabKhasA;
+const langra = langraA;
+const dusehri = dusehriA;
+const blackChaunsa = blackChaunsaA;
+const whiteChaunsa = whiteChaunsaA;
+const saroli = saroliA;
+const totaPuri = totaPuriA;
 
 export const WHATSAPP_NUMBER = "923001062646";
 export const PHONE_DISPLAY = "+92 300 10 MANGO";

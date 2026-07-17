@@ -67,7 +67,7 @@ function About() {
               <p>Our premium mangoes are rich in vitamins, minerals and antioxidants — 100% natural and mature carbide free.</p>
             </div>
           </div>
-          <img src={aboutTree.url} alt="Fresh mangoes from our orchard" className="w-full aspect-[4/5] object-cover" width={900} height={1100} loading="lazy" />
+          <img src={aboutTree} alt="Fresh mangoes from our orchard" className="w-full aspect-[4/5] object-cover" width={900} height={1100} loading="lazy" />
         </div>
       </section>
 

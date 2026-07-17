@@ -84,7 +84,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
         <div className="max-w-7xl mx-auto grid grid-cols-[auto_1fr_auto] items-center gap-4 px-6 md:px-12 py-3">
           <a href="#home" className="flex items-center shrink-0 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-cream" aria-label="Imperial Mangoes">
             <img
-              src={logo.url}
+              src={logo}
               alt="Imperial Mangoes"
               className={`h-12 md:h-14 w-auto transition ${solid ? "invert" : ""}`}
             />
@@ -199,7 +199,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
           }`}
         >
           <div className="flex items-center justify-between px-6 py-4 border-b border-black/5">
-            <img src={logo.url} alt="Imperial Mangoes" className="h-10 w-auto invert" />
+            <img src={logo} alt="Imperial Mangoes" className="h-10 w-auto invert" />
             <button aria-label="Close menu" onClick={() => setMobileOpen(false)} className="text-ink">
               <X size={24} />
             </button>
